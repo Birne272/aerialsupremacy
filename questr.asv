@@ -1,0 +1,13 @@
+function [ vstr ] = questr( str, maxr, arrst )
+%QUESTR Summary of this function goes here
+%   Detailed explanation goes here
+persistent maxr
+persistent arrstr
+persistent cur
+
+if(isEm
+
+
+
+end
+

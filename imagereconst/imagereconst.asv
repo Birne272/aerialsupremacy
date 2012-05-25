@@ -1,0 +1,100 @@
+% s1 = serial ('COM9','BaudRate',9600);
+% fopen(s1);
+% s1 = fopen('raw.txt');
+s1 = fopen('../datarekaman1/kamera8');
+fprintf('data open\n');
+
+% i=500;
+% while (i)
+	% disp('debug');
+	% tempx=fscanf(s1,'%c',1);
+	% temp(1)=cast(fscanf(s1,'%c',1),'uint8');
+	% disp(cast(tempx);
+	% disp(i);i=i-1;
+% end
+
+% fclose(s1);
+% disp('serial closed');
+
+h_pxl=201;v_pxl=201;
+i=1;j=1;
+
+imagedata = cast(zeros(v_pxl,h_pxl),'uint8');
+imHandle =  imshow(imagedata);
+set (imHandle,'Erase','xor'); 
+
+shg;
+
+while (j<v_pxl)
+	
+	temp=cast(fscanf(s1,'%c',1),'uint8');
+	k=0;
+	while (temp~=255)
+		k=k+1;
+		temp=cast(fscanf(s1,'%c',1),'uint8');
+	end
+	if(k>1)
+		fprintf('error awal : %d\n',k);
+		fprintf('FF start received -%d\n',j);
+	end
+	
+	temp1=cast(fscanf(s1,'%c',1),'uint8');
+	temp2=cast(fscanf(s1,'%c',1),'uint8');
+	temp3=cast(fscanf(s1,'%c',1),'uint8');
+	
+	tempstr=strcat(temp1,temp2,temp3);
+	[tempx, status] = str2num(tempstr);
+	
+	if (status == 1)
+		if (tempx ~=j)
+			fprintf('header #%d error\n',j);
+			fprintf('--- header %s\n', tempstr);
+		else
+			fprintf('header #%d received\n',j);
+		end
+	else
+		fprintf('header #%d error stat\n',j);
+		fprintf('--- header %s\n', tempstr);
+	end
+	
+	while (i<h_pxl)	
+		temp=cast(fscanf(s1,'%c',1),'uint8');
+		imagedata(j,i) = temp;
+		i=i+1;
+	end
+	
+	j=j+1;
+	i=1;
+	
+	if (not(mod(j,2)))
+		set(imHandle, 'CData', imagedata);
+		drawnow;
+	end
+	
+	% temp=cast(fscanf(s1,'%c',1),'uint8');
+	% k = 0;
+	% while (temp~=255)
+		% k=k+1;
+		% temp=cast(fscanf(s1,'%c',1),'uint8');
+	% end
+
+	% if(k>1)
+		% fprintf('error akhir : %d\n',k);
+		% fprintf('FF end received -%d\n',j);
+	% end
+
+end
+pause(1.0);
+
+%imagedata= imrotate(imagedata,90);
+%set(imHandle, 'CData', imagedata);
+%drawnow;
+%pause(1.0);
+%imagedata = adapthisteq(imagedata);
+%pause(1.0);
+%subplot(1,2,2),imshow(imagedata);
+set(imHandle, 'CData', imagedata);
+drawnow;
+
+fclose(s1);
+fprintf('data closed\n');
