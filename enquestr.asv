@@ -1,0 +1,21 @@
+function [ vstr ] = enquestr( str , ts, xmaxr);
+%QUESTR Summary of this function goes here
+%   Detailed explanation goes here
+
+persistent maxr qstr ;
+switch nargin
+    case 1
+    case 2
+        
+    case 3
+        maxr = xmaxr;
+        qstr = cell(maxr,1);
+end;
+
+fprintf('cur= %d maxr= %d \n',cur, maxr);
+
+
+vstr=qstr;
+
+end
+

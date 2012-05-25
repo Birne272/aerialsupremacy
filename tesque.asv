@@ -1,0 +1,15 @@
+for i= 1:1000
+end
+
+maxr=5;
+oldtext=cell(maxr);
+
+
+tic;
+for i=1:1000
+newtext=cell(size(oldtext));
+newtext(1:end-1)=oldtext(2:end);
+newtext(end)={'New text to display'};
+
+end
+toc;
