@@ -54,23 +54,39 @@ function gui_OpeningFcn(hObject, eventdata, handles, varargin)
 % Choose default command line output for gui
 handles.output = hObject;
 
-handles.hrealterm=actxserver('realterm.realtermintf'); % start Realterm as a server
+%resources 
+addpath('resources')
+
+%char encoding
+slCharacterEncoding('ISO-8859-1');
+
+%terminal que
+enquestr('',1,9);
+
+%Initializing Realterm Active X Server
+handles.hrealterm=actxserver('realterm.realtermintf'); 
 handles.hrealterm.baud=9600;
 handles.hrealterm.caption='Matlab Realterm Server';
 handles.hrealterm.windowstate=0; 
 handles.hrealterm.halfduplex=1;
 handles.hrealterm.displayas= 0;
-%0 normal 1 minimized
 handles.isConnected = 0;
+%0 normal 1 minimized
+set(handles.debug,'string',enquestr('Realterm Initialized'));
 
+%Initializing Survelliance
 axes(handles.image);
-handles.imdata = rgb2gray(imread('square.png'));
+handles.imdata = rgb2gray(imread('resources\square.png'));
 imshow(handles.imdata);
+set(handles.debug,'string',enquestr('Survelliance Initialized'));
 
+%Initializing Compas
 axes(handles.compass);
-handles.compassimg = imread('compass.png');
+handles.compassimg = imread('resources\compass.png');
 handle.compassg = imshow(handles.compassimg);
+set(handles.debug,'string',enquestr('Compass Initialized'));
 
+%Initializing AccGraph
 axes(handles.acc);
 handles.ncell = 700;
 handles.accX = zeros(handles.ncell ,1);  
@@ -86,15 +102,17 @@ axis([0 700 -500 500]);
 set(gca,'XTickMode','manual');
 set(gca,'XTick',[0 100 200 300 400 500 600 700]);
 set(gca,'YTickMode','manual');
+%MARK
 set(gca,'YTick',[-500 -250 0 250 500]);
 
 xlabel('Time (x10 ms)');
 ylabel('Acceleration (m/s^2)'); 
-
-accX(1) = 0;
-accX(2) = 0;
 grid on;
 
+set(handles.debug,'string',enquestr('Acceleration Graph Initialized'));
+
+
+%Initializing Model 3D
 axes(handles.model3d);
 [F, V, C] = rndread('roket.stl');
 p = patch('faces', F, 'vertices' ,V);
@@ -120,9 +138,12 @@ V=rx(90)*V;
 set(p,'Vertices',V(1:3,:)');   
 drawnow;
 handles.roketvertex=V;
+
+set(handles.debug,'string',enquestr('Model 3D Initialized'));
+
 %xlabel('X'),ylabel('Y'),zlabel('Z')
 
-keyboard;
+%keyboard;
 
 % Update handles structure
 guidata(hObject, handles);
@@ -175,14 +196,17 @@ try
 	if (handles.isConnected)
 		error('COM port still opened');
 	end
-	fprintf('Trying to close realterm... ');
+	strtemp=sprintf('Trying to close realterm... ');
+	set(handles.debug,'string',enquestr(strtemp));
 	invoke(handles.hrealterm,'close'); 
-	fprintf('Success !\n');
+	strtemp=sprintf('Success !');
+	set(handles.debug,'string',enquestr(strtemp));
 	%delete(handles.hrealterm);
 	% Hint: delete(hObject) closes the figure
 	delete(hObject);
 catch ex
-	fprintf('ERROR : %s\n',ex.message);
+	strtemp=sprintf('ERROR : %s',ex.message);
+	set(handles.debug,'string',enquestr(strtemp));
 end; %try
 
 
@@ -268,41 +292,50 @@ try
 	command_list = get(handles.commandlist,'String');
 	command_val = get(handles.commandlist,'Value');
 	command_cur=command_list{command_val};
-	fprintf('Trying to send Command [%s]... \n',command_cur);
+	strtemp=sprintf('Trying to send Command [%s]... ',command_cur);
+	set(handles.debug,'string',enquestr(strtemp));
 	%  command_val
 	% 1 Start Atittude Monitoring Mode
 	% 2 Start Surveillance Mode
 	% 3 Halt All Data Transmission
+	
 	switch command_val
 		case 1
+			% Atittude Monitoring Mode
 			invoke(handles.hrealterm,'ClearTerminal');
 			handles.hrealterm.PutString('77777');
-			fprintf('Success! Command [%s] sent. \n',command_cur);
-			% Atittude Monitoring Mode
+			strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
+			set(handles.debug,'string',enquestr(strtemp));
 			
 		case 2
+			% Surveillance Mode
 			invoke(handles.hrealterm,'ClearTerminal'); 
 			handles.hrealterm.PutString('aaaaa');
-			fprintf('Success! Command [%s] sent. \n',command_cur);
-			% Surveillance Mode
+			strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
+			set(handles.debug,'string',enquestr(strtemp));
+			drawnow;
 			tic;
 			ImageCapture(hObject, eventdata, handles);
+			
 		case 3
+			% Halt All Data Transmission 
 			invoke(handles.hrealterm,'ClearTerminal');
 			handles.hrealterm.PutString('#####');	
-			fprintf('Success! Command [%s] sent. \n',command_cur);
-			% Halt All Data Transmission 
+			strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
+			set(handles.debug,'string',enquestr(strtemp));
 			
 	end
 	
 catch ex
-	fprintf('ERROR : %s\n',ex.message);
+	strtemp=sprintf('ERROR : %s',ex.message);
+	set(handles.debug,'string',enquestr(strtemp));
 end
 
 
 function ImageCapture(hObject, eventdata, handles)
 	%Current Directory
-	handles.hrealterm.CaptureFile=strcat(cd,'\imagebuffer.txt');
+	imbuffer = 'sbuf';
+	handles.hrealterm.CaptureFile=strcat(cd,'\',imbuffer);
 	invoke(handles.hrealterm,'startcapture'); 
 	
 	%disable image function
@@ -310,15 +343,17 @@ function ImageCapture(hObject, eventdata, handles)
 	set(handles.rotm90button,'Enable','off');
 	set(handles.savebutton,'Enable','off');
 
-	f1 = fopen('imagebuffer.txt');
+	f1 = fopen(imbuffer);
 
 	axes(handles.image);
 	horizontal_length=200;
 	vertical_length=200;
 	imdata = cast(zeros(vertical_length,horizontal_length),'uint8');
 	imHandle = imshow(imdata);
+	drawnow;
 		
-	fprintf('Waiting for data..\n');
+	strtemp=sprintf('Waiting for data..');
+	set(handles.debug,'string',enquestr(strtemp));
 	% tunggu sampai ada karakter di RX
 	while(handles.hrealterm.charcount==0)
 	end
@@ -337,14 +372,16 @@ function ImageCapture(hObject, eventdata, handles)
 				inc starterror;
 				value_read=cast(fscanf(f1,'%c',1),'uint8');
 			catch ex
-				fprintf('ERROR : %s\n',ex.message);
+				strtemp=sprintf('ERROR : %s',ex.message);
+				set(handles.debug,'string',enquestr(strtemp));
 				value_read=0;
 			end
 			inc char_minimum;
 		end
 
 		if(starterror>0)
-			fprintf('0xFF Error Received : %d at line : %d\n',starterror,current_row);
+			strtemp=sprintf('0xFF Error Received : %d at line : %d',starterror,current_row);
+			set(handles.debug,'string',enquestr(strtemp));
 		end
 
 		char_minimum=char_minimum+202;%jumlah graycode
@@ -370,19 +407,22 @@ function ImageCapture(hObject, eventdata, handles)
 			[headerval, status] = str2num(headerstr);
 			if(status)
 				if (headerval==current_row)
-					%fprintf('Header Matched  line - %d\n',current_row);
+					%strtemp=sprintf('Header Matched  line - %d',current_row);
+					%set(handles.debug,'string',enquestr(strtemp));
 					if (headerval==1)
 						x=toc;
-						fprintf('Header line 1 received at %3.2f seconds\n',x);
+						strtemp=sprintf('Header line 1 received at %3.2f seconds',x);
+						set(handles.debug,'string',enquestr(strtemp));
 					end
 				else
-					error('Header Mismatch line %d, got %d\n',current_row, headerval);
+					error('Header Mismatch line %d, got %d',current_row, headerval);
 				end
 			else
 				error('Header Error : %s',headerstr);
 			end	
 		catch ex
-			fprintf('ERROR : %s\n',ex.message);
+			strtemp=sprintf('ERROR : %s',ex.message);
+			set(handles.debug,'string',enquestr(strtemp));
 			value_read=0;
 		end
 
@@ -402,7 +442,8 @@ function ImageCapture(hObject, eventdata, handles)
 					error('Empty Value');
 				end
 			catch ex
-				fprintf('ERROR : %s\n',ex.message);
+				strtemp=sprintf('ERROR : %s',ex.message);
+				set(handles.debug,'string',enquestr(strtemp));
 				value_read=1;
 			end
 			imdata(current_row,current_col) = value_read;
@@ -419,7 +460,8 @@ function ImageCapture(hObject, eventdata, handles)
 	end
 	
 	x=toc;
-	fprintf('Image capture success at %3.2f seconds\n',x); 
+	strtemp=sprintf('Image capture success at %3.2f seconds',x); 
+	set(handles.debug,'string',enquestr(strtemp));
 	%keyboard;
 	
 	fclose(f1);
@@ -430,8 +472,10 @@ function ImageCapture(hObject, eventdata, handles)
 	
 	a=fix(clock);
 	fname = sprintf('cam%02d%02d_%02d%02d.txt',a(3),a(2),a(4),a(5));
-	copyfile('imagebuffer.txt',fname)
-	fprintf('Data saved as %s\n',fname);
+	copyfile(imbuffer,fname);
+	movefile(fname,'log\');
+	strtemp=sprintf('Data saved as log/%s',fname);
+	set(handles.debug,'string',enquestr(strtemp));
 	
 	%enable image function
 	set(handles.rot90button,'Enable','on');
@@ -449,6 +493,9 @@ axes(handles.image);
 handles.imdata = imrotate(handles.imdata,90,'bilinear');
 imshow(handles.imdata);
 
+strtemp=sprintf('Picture has been rotated by -90 degrees');
+set(handles.debug,'string',enquestr(strtemp));
+
 guidata(hObject, handles);
 
 % --- Executes on button press in rotm90button.
@@ -460,6 +507,9 @@ axes(handles.image);
 handles.imdata = imrotate(handles.imdata,-90,'bilinear');
 imshow(handles.imdata);
 
+strtemp=sprintf('Picture has been rotated by 90 degrees');
+set(handles.debug,'string',enquestr(strtemp));
+
 guidata(hObject, handles);
 
 % --- Executes on button press in savebutton.
@@ -470,7 +520,11 @@ function savebutton_Callback(hObject, eventdata, handles)
 a=fix(clock);
 fname = sprintf('cam%02d%02d_%02d%02d.png',a(3),a(2),a(4),a(5));
 imwrite(handles.imdata,fname,'png');
-fprintf('Picture saved as %s\n',fname);
+movefile(fname,'savedpic\')
+strtemp=sprintf('Picture saved as savedpic/%s',fname);
+set(handles.debug,'string',enquestr(strtemp));
+
+
 
 % --- Executes on button press in pushbutton7.
 function pushbutton7_Callback(hObject, eventdata, handles)
@@ -502,22 +556,27 @@ try
 	end
 		
 	if(~handles.isConnected)
-		fprintf('Trying to open COM%d..',portVal);
+		strtemp=sprintf('Trying to open COM%d..',portVal);
+		set(handles.debug,'string',enquestr(strtemp));
 		handles.TargetPort = portVal;
 		handles.hrealterm.Port = sprintf('%d',handles.TargetPort);
 		handles.hrealterm.PortOpen=1; 
 		handles.isConnected = (handles.hrealterm.PortOpen~=0);
-		fprintf('Success!\n');
+		strtemp=sprintf('Success!');
+		set(handles.debug,'string',enquestr(strtemp));
 	else
-		fprintf('Trying to close COM%d..',portVal);
+		strtemp=sprintf('Trying to close COM%d..',portVal);
+		set(handles.debug,'string',enquestr(strtemp));
 		handles.hrealterm.PortOpen=0; 
 		handles.isConnected = (handles.hrealterm.PortOpen~=0);
-		fprintf('Success!\n');
+		strtemp=sprintf('Success!');
+		set(handles.debug,'string',enquestr(strtemp));
 	end
 	
 catch ex
 	handle.isConnected = 0;
-	fprintf('ERROR : %s\n',ex.message);
+	strtemp=sprintf('ERROR : %s',ex.message);
+	set(handles.debug,'string',enquestr(strtemp));
 end
 
 if (handles.isConnected)
