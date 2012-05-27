@@ -26,36 +26,9 @@ public class JavaSerial {
    
     
     public static void main(String[] args) {
-        String defaultPort = "COM9";
+        String defaultPort = "COM8";
         
-        try{
-            String filename = "data";
-            //String filename = "sample.txt";
-            reader = new BufferedReader(new FileReader(dir+filename));
-        } catch(FileNotFoundException ex) {
-            System.err.format("FileNotFoundException: %s%n",ex);
-        }
-        int data[] = new int[41000];
-        int temp=0,temp2,k,i=0;
-        try {
-            while (temp != -1) {   
-                k = 100;
-                temp2=0;
-                do { 
-                     temp = reader.read();
-                     if (temp>='0'&&temp<='9'){
-                         temp2+=(temp-(int) '0')*k;
-                         k/=10;
-                     }
-                } while (temp != (int) ' ');
-                if(k==1)temp2/=10;
-                i++;
-                data[i]=temp2;
-            } 
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-        
+       
         portList = CommPortIdentifier.getPortIdentifiers();
         boolean portFound = false;
         while (portList.hasMoreElements()) {
@@ -100,16 +73,29 @@ public class JavaSerial {
                    
                     System.out.println("TX Started");
  
-                                           
-                    for (int idx = 0; idx < data.length; idx++) {
-                        if(idx%1000==0){System.out.println("--"+idx);}
-                        try {
-                            outputStream.write(data[idx]);
-                        } catch (IOException ex) {}
+                    /*                       
+                    try {
+                        for (int i = 0; i < 256; i++) {
+                            outputStream.write(i);
+                        }
+                    } catch (Exception e) {
                     }
-                                      
-                    System.out.format("Success: %d char sent\n",data.length);
-                    
+                    */
+                    int x=0;
+                    try {
+                        String filename="sampledata/kamera6";
+                        FileInputStream fin = new FileInputStream(filename);
+                        DataInputStream din = new DataInputStream(fin);
+                        System.out.println("Total data available : "+din.available()+" bytes");
+                        while (din.available()>0) {                            
+                            int dtx = din.read();
+                            outputStream.write(dtx);
+                            ++x;
+                        }
+                        
+                    } catch (Exception e) {
+                    }
+                    System.out.println("Total data sent : "+x+" bytes");
                     try {
                        Thread.sleep(2000);  // Be sure data is xferred before closing
                     } catch (Exception e) {}

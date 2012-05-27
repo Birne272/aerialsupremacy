@@ -54,14 +54,19 @@ function gui_OpeningFcn(hObject, eventdata, handles, varargin)
 % Choose default command line output for gui
 handles.output = hObject;
 
+pause on;
+
 %resources 
-addpath('resources')
+addpath('resources');
 
 %char encoding
 slCharacterEncoding('ISO-8859-1');
 
 %terminal que
-enquestr('',1,9);
+a=fix(clock);
+fname = sprintf('ter%02d%02d_%02d%02d.txt',a(3),a(2),a(4),a(5));
+logname = sprintf('log/term/%s',fname);
+enquestr('',1,9,logname);
 
 %Initializing Realterm Active X Server
 handles.hrealterm=actxserver('realterm.realtermintf'); 
@@ -72,13 +77,15 @@ handles.hrealterm.halfduplex=1;
 handles.hrealterm.displayas= 0;
 handles.isConnected = 0;
 %0 normal 1 minimized
-set(handles.debug,'string',enquestr('Realterm Initialized'));
+
 
 %Initializing Survelliance
 axes(handles.image);
 handles.imdata = rgb2gray(imread('resources\square.png'));
 imshow(handles.imdata);
 set(handles.debug,'string',enquestr('Survelliance Initialized'));
+set(handles.ImageStatus,'string','0.0%');
+set(handles.imtime,'string','0.00');
 
 %Initializing Compas
 axes(handles.compass);
@@ -193,6 +200,8 @@ function figure1_CloseRequestFcn(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 try
+	strtemp=sprintf('Trying to close program... ');
+	set(handles.debug,'string',enquestr(strtemp));
 	if (handles.isConnected)
 		error('COM port still opened');
 	end
@@ -202,6 +211,7 @@ try
 	strtemp=sprintf('Success !');
 	set(handles.debug,'string',enquestr(strtemp));
 	%delete(handles.hrealterm);
+	enquestr('','','','','');
 	% Hint: delete(hObject) closes the figure
 	delete(hObject);
 catch ex
@@ -333,10 +343,15 @@ end
 
 
 function ImageCapture(hObject, eventdata, handles)
-	%Current Directory
+	T = timer();
+	T.ExecutionMode = 'fixedRate';
+	T.Period = 0.01;
+	T.TimerFcn = {@ImUpdateTime, hObject, eventdata, handles};
+	start(T);
+	
 	imbuffer = 'sbuf';
 	handles.hrealterm.CaptureFile=strcat(cd,'\',imbuffer);
-	invoke(handles.hrealterm,'startcapture'); 
+	invoke(handles.hrealterm,'startcapture'); 	
 	
 	%disable image function
 	set(handles.rot90button,'Enable','off');
@@ -356,6 +371,7 @@ function ImageCapture(hObject, eventdata, handles)
 	set(handles.debug,'string',enquestr(strtemp));
 	% tunggu sampai ada karakter di RX
 	while(handles.hrealterm.charcount==0)
+		pause(1E-6);
 	end
 	char_minimum=0;
 	current_row=1;
@@ -366,7 +382,8 @@ function ImageCapture(hObject, eventdata, handles)
 		starterror=-2;
 		while(value_read~=255)
 			while (handles.hrealterm.charcount<char_minimum)
-			%tunggu sampai ada char available
+				pause(1E-6);
+				%tunggu sampai ada char available
 			end
 			try
 				inc starterror;
@@ -398,6 +415,7 @@ function ImageCapture(hObject, eventdata, handles)
 		try
 			headerbyte1=cast(fscanf(f1,'%c',1),'uint8');
 			while (headerbyte1==255)
+				pause(1E-8);
 				headerbyte1=cast(fscanf(f1,'%c',1),'uint8');
 				inc char_minimum;
 			end
@@ -427,7 +445,7 @@ function ImageCapture(hObject, eventdata, handles)
 		end
 
 		while (handles.hrealterm.charcount<char_minimum)
-			pause(1E-6);
+			pause(1E-8);
 			%inc watchdog;
 			%if(watchdog>1000)
 			%	break;
@@ -458,7 +476,7 @@ function ImageCapture(hObject, eventdata, handles)
 			drawnow;
 		end
 	end
-	
+	stop(T);
 	x=toc;
 	strtemp=sprintf('Image capture success at %3.2f seconds',x); 
 	set(handles.debug,'string',enquestr(strtemp));
@@ -473,8 +491,8 @@ function ImageCapture(hObject, eventdata, handles)
 	a=fix(clock);
 	fname = sprintf('cam%02d%02d_%02d%02d.txt',a(3),a(2),a(4),a(5));
 	copyfile(imbuffer,fname);
-	movefile(fname,'log\');
-	strtemp=sprintf('Data saved as log/%s',fname);
+	movefile(fname,'log\cam\');
+	strtemp=sprintf('Data saved as log/cam/%s',fname);
 	set(handles.debug,'string',enquestr(strtemp));
 	
 	%enable image function
