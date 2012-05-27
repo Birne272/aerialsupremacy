@@ -22,7 +22,7 @@ function varargout = gui(varargin)
 
 % Edit the above text to modify the response to help gui
 
-% Last Modified by GUIDE v2.5 22-May-2012 00:40:52
+% Last Modified by GUIDE v2.5 28-May-2012 02:17:16
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -64,7 +64,7 @@ slCharacterEncoding('ISO-8859-1');
 
 %terminal que
 a=fix(clock);
-fname = sprintf('ter%02d%02d_%02d%02d.txt',a(3),a(2),a(4),a(5));
+fname = sprintf('ter%02d%02d_%02d%02d.log',a(3),a(2),a(4),a(5));
 logname = sprintf('log/term/%s',fname);
 enquestr('',1,9,logname);
 
@@ -343,6 +343,7 @@ end
 
 
 function ImageCapture(hObject, eventdata, handles)
+	% Timer utk Elapsed Time
 	T = timer();
 	T.ExecutionMode = 'fixedRate';
 	T.Period = 0.01;
@@ -489,7 +490,7 @@ function ImageCapture(hObject, eventdata, handles)
 	handles.imdata=imdata;
 	
 	a=fix(clock);
-	fname = sprintf('cam%02d%02d_%02d%02d.txt',a(3),a(2),a(4),a(5));
+	fname = sprintf('cam%02d%02d_%02d%02d.log',a(3),a(2),a(4),a(5));
 	copyfile(imbuffer,fname);
 	movefile(fname,'log\cam\');
 	strtemp=sprintf('Data saved as log/cam/%s',fname);
@@ -611,3 +612,25 @@ else
 end
 
 guidata(hObject, handles);
+
+
+% --- Executes on slider movement.
+function scale_Callback(hObject, eventdata, handles)
+% hObject    handle to scale (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+
+% --- Executes during object creation, after setting all properties.
+function scale_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to scale (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
