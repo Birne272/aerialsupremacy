@@ -1,0 +1,871 @@
+[02:52:21] Terminal Initialized
+[02:52:21] Survelliance Initialized
+[02:52:21] Compass Initialized
+[02:52:22] Acceleration Graph Initialized
+[02:52:22] Model 3D Initialized
+[02:52:25] Trying to open COM8..
+[02:52:25] Success!
+[02:52:39] Trying to send Command [Start Surveillance Mode]... 
+[02:52:39] Success! Command [Start Surveillance Mode] sent. 
+[02:52:39] Waiting for data..
+[02:52:44] Identification received : 303
+[02:52:44] Header Matched  line - 1
+[02:52:44] Header line 1 received at 5.13 seconds
+[02:52:44] PANIC FF HEADER COMPASS NOT READ at line 1
+[02:52:44] Header Matched  line - 2
+[02:52:44] PANIC FF HEADER COMPASS NOT READ at line 2
+[02:52:45] Header Matched  line - 3
+[02:52:45] PANIC FF HEADER COMPASS NOT READ at line 3
+[02:52:45] Header Matched  line - 4
+[02:52:45] PANIC FF HEADER COMPASS NOT READ at line 4
+[02:52:45] Header Matched  line - 5
+[02:52:45] PANIC FF HEADER COMPASS NOT READ at line 5
+[02:52:45] Header Matched  line - 6
+[02:52:45] PANIC FF HEADER COMPASS NOT READ at line 6
+[02:52:46] Header Matched  line - 7
+[02:52:46] PANIC FF HEADER COMPASS NOT READ at line 7
+[02:52:46] Header Matched  line - 8
+[02:52:46] PANIC FF HEADER COMPASS NOT READ at line 8
+[02:52:46] Header Matched  line - 9
+[02:52:46] PANIC FF HEADER COMPASS NOT READ at line 9
+[02:52:46] Header Matched  line - 10
+[02:52:46] PANIC FF HEADER COMPASS NOT READ at line 10
+[02:52:46] Header Matched  line - 11
+[02:52:46] PANIC FF HEADER COMPASS NOT READ at line 11
+[02:52:47] Header Matched  line - 12
+[02:52:47] PANIC FF HEADER COMPASS NOT READ at line 12
+[02:52:47] Header Matched  line - 13
+[02:52:47] PANIC FF HEADER COMPASS NOT READ at line 13
+[02:52:47] Header Matched  line - 14
+[02:52:47] PANIC FF HEADER COMPASS NOT READ at line 14
+[02:52:47] Header Matched  line - 15
+[02:52:47] PANIC FF HEADER COMPASS NOT READ at line 15
+[02:52:48] Header Matched  line - 16
+[02:52:48] PANIC FF HEADER COMPASS NOT READ at line 16
+[02:52:48] Header Matched  line - 17
+[02:52:48] PANIC FF HEADER COMPASS NOT READ at line 17
+[02:52:48] Header Matched  line - 18
+[02:52:48] PANIC FF HEADER COMPASS NOT READ at line 18
+[02:52:48] Header Matched  line - 19
+[02:52:48] PANIC FF HEADER COMPASS NOT READ at line 19
+[02:52:48] Header Matched  line - 20
+[02:52:48] PANIC FF HEADER COMPASS NOT READ at line 20
+[02:52:49] Header Matched  line - 21
+[02:52:49] PANIC FF HEADER COMPASS NOT READ at line 21
+[02:52:49] Header Matched  line - 22
+[02:52:49] PANIC FF HEADER COMPASS NOT READ at line 22
+[02:52:49] Header Matched  line - 23
+[02:52:49] PANIC FF HEADER COMPASS NOT READ at line 23
+[02:52:49] Header Matched  line - 24
+[02:52:49] PANIC FF HEADER COMPASS NOT READ at line 24
+[02:52:50] Header Matched  line - 25
+[02:52:50] PANIC FF HEADER COMPASS NOT READ at line 25
+[02:52:50] Header Matched  line - 26
+[02:52:50] PANIC FF HEADER COMPASS NOT READ at line 26
+[02:52:50] Header Matched  line - 27
+[02:52:50] PANIC FF HEADER COMPASS NOT READ at line 27
+[02:52:50] Header Matched  line - 28
+[02:52:50] PANIC FF HEADER COMPASS NOT READ at line 28
+[02:52:50] Header Matched  line - 29
+[02:52:50] PANIC FF HEADER COMPASS NOT READ at line 29
+[02:52:51] Header Matched  line - 30
+[02:52:51] PANIC FF HEADER COMPASS NOT READ at line 30
+[02:52:51] Header Matched  line - 31
+[02:52:51] PANIC FF HEADER COMPASS NOT READ at line 31
+[02:52:51] Header Matched  line - 32
+[02:52:51] PANIC FF HEADER COMPASS NOT READ at line 32
+[02:52:51] Header Matched  line - 33
+[02:52:51] PANIC FF HEADER COMPASS NOT READ at line 33
+[02:52:52] Header Matched  line - 34
+[02:52:52] PANIC FF HEADER COMPASS NOT READ at line 34
+[02:52:52] Header Matched  line - 35
+[02:52:52] PANIC FF HEADER COMPASS NOT READ at line 35
+[02:52:52] Header Matched  line - 36
+[02:52:52] PANIC FF HEADER COMPASS NOT READ at line 36
+[02:52:52] Header Matched  line - 37
+[02:52:52] PANIC FF HEADER COMPASS NOT READ at line 37
+[02:52:52] Header Matched  line - 38
+[02:52:52] PANIC FF HEADER COMPASS NOT READ at line 38
+[02:52:53] Header Matched  line - 39
+[02:52:53] PANIC FF HEADER COMPASS NOT READ at line 39
+[02:52:53] Header Matched  line - 40
+[02:52:53] PANIC FF HEADER COMPASS NOT READ at line 40
+[02:52:53] Header Matched  line - 41
+[02:52:53] PANIC FF HEADER COMPASS NOT READ at line 41
+[02:52:53] Header Matched  line - 42
+[02:52:53] PANIC FF HEADER COMPASS NOT READ at line 42
+[02:52:54] Header Matched  line - 43
+[02:52:54] PANIC FF HEADER COMPASS NOT READ at line 43
+[02:52:54] Header Matched  line - 44
+[02:52:54] PANIC FF HEADER COMPASS NOT READ at line 44
+[02:52:54] Header Matched  line - 45
+[02:52:54] PANIC FF HEADER COMPASS NOT READ at line 45
+[02:52:54] Header Matched  line - 46
+[02:52:54] PANIC FF HEADER COMPASS NOT READ at line 46
+[02:52:54] Header Matched  line - 47
+[02:52:54] PANIC FF HEADER COMPASS NOT READ at line 47
+[02:52:55] Header Matched  line - 48
+[02:52:55] PANIC FF HEADER COMPASS NOT READ at line 48
+[02:52:55] Header Matched  line - 49
+[02:52:55] PANIC FF HEADER COMPASS NOT READ at line 49
+[02:52:55] Header Matched  line - 50
+[02:52:55] PANIC FF HEADER COMPASS NOT READ at line 50
+[02:52:55] Header Matched  line - 51
+[02:52:55] PANIC FF HEADER COMPASS NOT READ at line 51
+[02:52:56] Header Matched  line - 52
+[02:52:56] PANIC FF HEADER COMPASS NOT READ at line 52
+[02:52:56] Header Matched  line - 53
+[02:52:56] PANIC FF HEADER COMPASS NOT READ at line 53
+[02:52:56] Header Matched  line - 54
+[02:52:56] PANIC FF HEADER COMPASS NOT READ at line 54
+[02:52:56] Header Matched  line - 55
+[02:52:56] PANIC FF HEADER COMPASS NOT READ at line 55
+[02:52:56] Header Matched  line - 56
+[02:52:56] PANIC FF HEADER COMPASS NOT READ at line 56
+[02:52:57] Header Matched  line - 57
+[02:52:57] PANIC FF HEADER COMPASS NOT READ at line 57
+[02:52:57] Header Matched  line - 58
+[02:52:57] PANIC FF HEADER COMPASS NOT READ at line 58
+[02:52:57] Header Matched  line - 59
+[02:52:57] PANIC FF HEADER COMPASS NOT READ at line 59
+[02:52:57] Header Matched  line - 60
+[02:52:57] PANIC FF HEADER COMPASS NOT READ at line 60
+[02:52:58] Header Matched  line - 61
+[02:52:58] PANIC FF HEADER COMPASS NOT READ at line 61
+[02:52:58] Header Matched  line - 62
+[02:52:58] PANIC FF HEADER COMPASS NOT READ at line 62
+[02:52:58] Header Matched  line - 63
+[02:52:58] PANIC FF HEADER COMPASS NOT READ at line 63
+[02:52:58] Header Matched  line - 64
+[02:52:58] PANIC FF HEADER COMPASS NOT READ at line 64
+[02:52:58] Header Matched  line - 65
+[02:52:58] PANIC FF HEADER COMPASS NOT READ at line 65
+[02:52:59] Header Matched  line - 66
+[02:52:59] PANIC FF HEADER COMPASS NOT READ at line 66
+[02:52:59] Header Matched  line - 67
+[02:52:59] PANIC FF HEADER COMPASS NOT READ at line 67
+[02:52:59] Header Matched  line - 68
+[02:52:59] PANIC FF HEADER COMPASS NOT READ at line 68
+[02:52:59] Header Matched  line - 69
+[02:52:59] PANIC FF HEADER COMPASS NOT READ at line 69
+[02:53:00] Header Matched  line - 70
+[02:53:00] PANIC FF HEADER COMPASS NOT READ at line 70
+[02:53:00] Header Matched  line - 71
+[02:53:00] PANIC FF HEADER COMPASS NOT READ at line 71
+[02:53:00] Header Matched  line - 72
+[02:53:00] PANIC FF HEADER COMPASS NOT READ at line 72
+[02:53:00] Header Matched  line - 73
+[02:53:00] PANIC FF HEADER COMPASS NOT READ at line 73
+[02:53:00] Header Matched  line - 74
+[02:53:00] PANIC FF HEADER COMPASS NOT READ at line 74
+[02:53:01] Header Matched  line - 75
+[02:53:01] PANIC FF HEADER COMPASS NOT READ at line 75
+[02:53:01] Header Matched  line - 76
+[02:53:01] PANIC FF HEADER COMPASS NOT READ at line 76
+[02:53:01] Header Matched  line - 77
+[02:53:01] PANIC FF HEADER COMPASS NOT READ at line 77
+[02:53:01] Header Matched  line - 78
+[02:53:01] PANIC FF HEADER COMPASS NOT READ at line 78
+[02:53:02] Header Matched  line - 79
+[02:53:02] PANIC FF HEADER COMPASS NOT READ at line 79
+[02:53:02] Header Matched  line - 80
+[02:53:02] PANIC FF HEADER COMPASS NOT READ at line 80
+[02:53:02] Header Matched  line - 81
+[02:53:02] PANIC FF HEADER COMPASS NOT READ at line 81
+[02:53:02] Header Matched  line - 82
+[02:53:02] PANIC FF HEADER COMPASS NOT READ at line 82
+[02:53:02] Header Matched  line - 83
+[02:53:03] PANIC FF HEADER COMPASS NOT READ at line 83
+[02:53:03] Header Matched  line - 84
+[02:53:03] PANIC FF HEADER COMPASS NOT READ at line 84
+[02:53:03] Header Matched  line - 85
+[02:53:03] PANIC FF HEADER COMPASS NOT READ at line 85
+[02:53:03] Header Matched  line - 86
+[02:53:03] PANIC FF HEADER COMPASS NOT READ at line 86
+[02:53:03] Header Matched  line - 87
+[02:53:03] PANIC FF HEADER COMPASS NOT READ at line 87
+[02:53:04] Header Matched  line - 88
+[02:53:04] PANIC FF HEADER COMPASS NOT READ at line 88
+[02:53:04] Header Matched  line - 89
+[02:53:04] PANIC FF HEADER COMPASS NOT READ at line 89
+[02:53:04] Header Matched  line - 90
+[02:53:04] PANIC FF HEADER COMPASS NOT READ at line 90
+[02:53:04] Header Matched  line - 91
+[02:53:04] PANIC FF HEADER COMPASS NOT READ at line 91
+[02:53:04] Header Matched  line - 92
+[02:53:05] PANIC FF HEADER COMPASS NOT READ at line 92
+[02:53:05] Header Matched  line - 93
+[02:53:05] PANIC FF HEADER COMPASS NOT READ at line 93
+[02:53:05] Header Matched  line - 94
+[02:53:05] PANIC FF HEADER COMPASS NOT READ at line 94
+[02:53:05] Header Matched  line - 95
+[02:53:05] PANIC FF HEADER COMPASS NOT READ at line 95
+[02:53:05] Header Matched  line - 96
+[02:53:05] PANIC FF HEADER COMPASS NOT READ at line 96
+[02:53:06] Header Matched  line - 97
+[02:53:06] PANIC FF HEADER COMPASS NOT READ at line 97
+[02:53:06] Header Matched  line - 98
+[02:53:06] PANIC FF HEADER COMPASS NOT READ at line 98
+[02:53:06] Header Matched  line - 99
+[02:53:06] PANIC FF HEADER COMPASS NOT READ at line 99
+[02:53:06] Header Matched  line - 100
+[02:53:06] PANIC FF HEADER COMPASS NOT READ at line 100
+[02:53:06] Header Matched  line - 101
+[02:53:07] PANIC FF HEADER COMPASS NOT READ at line 101
+[02:53:07] Header Matched  line - 102
+[02:53:07] PANIC FF HEADER COMPASS NOT READ at line 102
+[02:53:07] Header Matched  line - 103
+[02:53:07] PANIC FF HEADER COMPASS NOT READ at line 103
+[02:53:07] Header Matched  line - 104
+[02:53:07] PANIC FF HEADER COMPASS NOT READ at line 104
+[02:53:07] Header Matched  line - 105
+[02:53:07] PANIC FF HEADER COMPASS NOT READ at line 105
+[02:53:08] Header Matched  line - 106
+[02:53:08] PANIC FF HEADER COMPASS NOT READ at line 106
+[02:53:08] Header Matched  line - 107
+[02:53:08] PANIC FF HEADER COMPASS NOT READ at line 107
+[02:53:08] Header Matched  line - 108
+[02:53:08] PANIC FF HEADER COMPASS NOT READ at line 108
+[02:53:08] Header Matched  line - 109
+[02:53:08] PANIC FF HEADER COMPASS NOT READ at line 109
+[02:53:09] Header Matched  line - 110
+[02:53:09] PANIC FF HEADER COMPASS NOT READ at line 110
+[02:53:09] Header Matched  line - 111
+[02:53:09] PANIC FF HEADER COMPASS NOT READ at line 111
+[02:53:09] Header Matched  line - 112
+[02:53:09] PANIC FF HEADER COMPASS NOT READ at line 112
+[02:53:09] Header Matched  line - 113
+[02:53:09] PANIC FF HEADER COMPASS NOT READ at line 113
+[02:53:09] Header Matched  line - 114
+[02:53:09] PANIC FF HEADER COMPASS NOT READ at line 114
+[02:53:10] Header Matched  line - 115
+[02:53:10] PANIC FF HEADER COMPASS NOT READ at line 115
+[02:53:10] Header Matched  line - 116
+[02:53:10] PANIC FF HEADER COMPASS NOT READ at line 116
+[02:53:10] Header Matched  line - 117
+[02:53:10] PANIC FF HEADER COMPASS NOT READ at line 117
+[02:53:10] Header Matched  line - 118
+[02:53:10] PANIC FF HEADER COMPASS NOT READ at line 118
+[02:53:11] Header Matched  line - 119
+[02:53:11] PANIC FF HEADER COMPASS NOT READ at line 119
+[02:53:11] Header Matched  line - 120
+[02:53:11] PANIC FF HEADER COMPASS NOT READ at line 120
+[02:53:11] Header Matched  line - 121
+[02:53:11] PANIC FF HEADER COMPASS NOT READ at line 121
+[02:53:11] Header Matched  line - 122
+[02:53:11] PANIC FF HEADER COMPASS NOT READ at line 122
+[02:53:11] Header Matched  line - 123
+[02:53:11] PANIC FF HEADER COMPASS NOT READ at line 123
+[02:53:12] Header Matched  line - 124
+[02:53:12] PANIC FF HEADER COMPASS NOT READ at line 124
+[02:53:12] Header Matched  line - 125
+[02:53:12] PANIC FF HEADER COMPASS NOT READ at line 125
+[02:53:12] Header Matched  line - 126
+[02:53:12] PANIC FF HEADER COMPASS NOT READ at line 126
+[02:53:12] Header Matched  line - 127
+[02:53:12] PANIC FF HEADER COMPASS NOT READ at line 127
+[02:53:13] Header Matched  line - 128
+[02:53:13] PANIC FF HEADER COMPASS NOT READ at line 128
+[02:53:13] Header Matched  line - 129
+[02:53:13] PANIC FF HEADER COMPASS NOT READ at line 129
+[02:53:13] Header Matched  line - 130
+[02:53:13] PANIC FF HEADER COMPASS NOT READ at line 130
+[02:53:13] Header Matched  line - 131
+[02:53:13] PANIC FF HEADER COMPASS NOT READ at line 131
+[02:53:13] Header Matched  line - 132
+[02:53:13] PANIC FF HEADER COMPASS NOT READ at line 132
+[02:53:14] Header Matched  line - 133
+[02:53:14] PANIC FF HEADER COMPASS NOT READ at line 133
+[02:53:14] Header Matched  line - 134
+[02:53:14] PANIC FF HEADER COMPASS NOT READ at line 134
+[02:53:14] Header Matched  line - 135
+[02:53:14] PANIC FF HEADER COMPASS NOT READ at line 135
+[02:53:14] Header Matched  line - 136
+[02:53:14] PANIC FF HEADER COMPASS NOT READ at line 136
+[02:53:15] Header Matched  line - 137
+[02:53:15] PANIC FF HEADER COMPASS NOT READ at line 137
+[02:53:15] Header Matched  line - 138
+[02:53:15] PANIC FF HEADER COMPASS NOT READ at line 138
+[02:53:15] Header Matched  line - 139
+[02:53:15] PANIC FF HEADER COMPASS NOT READ at line 139
+[02:53:15] Header Matched  line - 140
+[02:53:15] PANIC FF HEADER COMPASS NOT READ at line 140
+[02:53:15] Header Matched  line - 141
+[02:53:15] PANIC FF HEADER COMPASS NOT READ at line 141
+[02:53:16] Header Matched  line - 142
+[02:53:16] PANIC FF HEADER COMPASS NOT READ at line 142
+[02:53:16] Header Matched  line - 143
+[02:53:16] PANIC FF HEADER COMPASS NOT READ at line 143
+[02:53:16] Header Matched  line - 144
+[02:53:16] PANIC FF HEADER COMPASS NOT READ at line 144
+[02:53:16] Header Matched  line - 145
+[02:53:16] PANIC FF HEADER COMPASS NOT READ at line 145
+[02:53:17] Header Matched  line - 146
+[02:53:17] PANIC FF HEADER COMPASS NOT READ at line 146
+[02:53:17] Header Matched  line - 147
+[02:53:17] PANIC FF HEADER COMPASS NOT READ at line 147
+[02:53:17] Header Matched  line - 148
+[02:53:17] PANIC FF HEADER COMPASS NOT READ at line 148
+[02:53:17] Header Matched  line - 149
+[02:53:17] PANIC FF HEADER COMPASS NOT READ at line 149
+[02:53:17] Header Matched  line - 150
+[02:53:17] PANIC FF HEADER COMPASS NOT READ at line 150
+[02:53:18] Header Matched  line - 151
+[02:53:18] PANIC FF HEADER COMPASS NOT READ at line 151
+[02:53:18] Header Matched  line - 152
+[02:53:18] PANIC FF HEADER COMPASS NOT READ at line 152
+[02:53:18] Header Matched  line - 153
+[02:53:18] PANIC FF HEADER COMPASS NOT READ at line 153
+[02:53:18] Header Matched  line - 154
+[02:53:18] PANIC FF HEADER COMPASS NOT READ at line 154
+[02:53:19] Header Matched  line - 155
+[02:53:19] PANIC FF HEADER COMPASS NOT READ at line 155
+[02:53:19] Header Matched  line - 156
+[02:53:19] PANIC FF HEADER COMPASS NOT READ at line 156
+[02:53:19] Header Matched  line - 157
+[02:53:19] PANIC FF HEADER COMPASS NOT READ at line 157
+[02:53:19] Header Matched  line - 158
+[02:53:19] PANIC FF HEADER COMPASS NOT READ at line 158
+[02:53:19] Header Matched  line - 159
+[02:53:19] PANIC FF HEADER COMPASS NOT READ at line 159
+[02:53:20] Header Matched  line - 160
+[02:53:20] PANIC FF HEADER COMPASS NOT READ at line 160
+[02:53:20] Header Matched  line - 161
+[02:53:20] PANIC FF HEADER COMPASS NOT READ at line 161
+[02:53:20] Header Matched  line - 162
+[02:53:20] PANIC FF HEADER COMPASS NOT READ at line 162
+[02:53:20] Header Matched  line - 163
+[02:53:20] PANIC FF HEADER COMPASS NOT READ at line 163
+[02:53:21] Header Matched  line - 164
+[02:53:21] PANIC FF HEADER COMPASS NOT READ at line 164
+[02:53:21] Header Matched  line - 165
+[02:53:21] PANIC FF HEADER COMPASS NOT READ at line 165
+[02:53:21] Header Matched  line - 166
+[02:53:21] PANIC FF HEADER COMPASS NOT READ at line 166
+[02:53:21] Header Matched  line - 167
+[02:53:21] PANIC FF HEADER COMPASS NOT READ at line 167
+[02:53:21] Header Matched  line - 168
+[02:53:21] PANIC FF HEADER COMPASS NOT READ at line 168
+[02:53:22] Header Matched  line - 169
+[02:53:22] PANIC FF HEADER COMPASS NOT READ at line 169
+[02:53:22] Header Matched  line - 170
+[02:53:22] PANIC FF HEADER COMPASS NOT READ at line 170
+[02:53:22] Header Matched  line - 171
+[02:53:22] PANIC FF HEADER COMPASS NOT READ at line 171
+[02:53:22] Header Matched  line - 172
+[02:53:22] PANIC FF HEADER COMPASS NOT READ at line 172
+[02:53:23] Header Matched  line - 173
+[02:53:23] PANIC FF HEADER COMPASS NOT READ at line 173
+[02:53:23] Header Matched  line - 174
+[02:53:23] PANIC FF HEADER COMPASS NOT READ at line 174
+[02:53:23] Header Matched  line - 175
+[02:53:23] PANIC FF HEADER COMPASS NOT READ at line 175
+[02:53:23] Header Matched  line - 176
+[02:53:23] PANIC FF HEADER COMPASS NOT READ at line 176
+[02:53:23] Header Matched  line - 177
+[02:53:23] PANIC FF HEADER COMPASS NOT READ at line 177
+[02:53:24] Header Matched  line - 178
+[02:53:24] PANIC FF HEADER COMPASS NOT READ at line 178
+[02:53:24] Header Matched  line - 179
+[02:53:24] PANIC FF HEADER COMPASS NOT READ at line 179
+[02:53:24] Header Matched  line - 180
+[02:53:24] PANIC FF HEADER COMPASS NOT READ at line 180
+[02:53:24] Header Matched  line - 181
+[02:53:24] PANIC FF HEADER COMPASS NOT READ at line 181
+[02:53:25] Header Matched  line - 182
+[02:53:25] PANIC FF HEADER COMPASS NOT READ at line 182
+[02:53:25] Header Matched  line - 183
+[02:53:25] PANIC FF HEADER COMPASS NOT READ at line 183
+[02:53:25] Header Matched  line - 184
+[02:53:25] PANIC FF HEADER COMPASS NOT READ at line 184
+[02:53:25] Header Matched  line - 185
+[02:53:25] PANIC FF HEADER COMPASS NOT READ at line 185
+[02:53:25] Header Matched  line - 186
+[02:53:25] PANIC FF HEADER COMPASS NOT READ at line 186
+[02:53:26] Header Matched  line - 187
+[02:53:26] PANIC FF HEADER COMPASS NOT READ at line 187
+[02:53:26] Header Matched  line - 188
+[02:53:26] PANIC FF HEADER COMPASS NOT READ at line 188
+[02:53:26] Header Matched  line - 189
+[02:53:26] PANIC FF HEADER COMPASS NOT READ at line 189
+[02:53:26] Header Matched  line - 190
+[02:53:26] PANIC FF HEADER COMPASS NOT READ at line 190
+[02:53:27] Header Matched  line - 191
+[02:53:27] PANIC FF HEADER COMPASS NOT READ at line 191
+[02:53:27] Header Matched  line - 192
+[02:53:27] PANIC FF HEADER COMPASS NOT READ at line 192
+[02:53:27] Header Matched  line - 193
+[02:53:27] PANIC FF HEADER COMPASS NOT READ at line 193
+[02:53:27] Header Matched  line - 194
+[02:53:27] PANIC FF HEADER COMPASS NOT READ at line 194
+[02:53:27] Header Matched  line - 195
+[02:53:28] PANIC FF HEADER COMPASS NOT READ at line 195
+[02:53:28] Header Matched  line - 196
+[02:53:28] PANIC FF HEADER COMPASS NOT READ at line 196
+[02:53:28] Header Matched  line - 197
+[02:53:28] PANIC FF HEADER COMPASS NOT READ at line 197
+[02:53:28] Header Matched  line - 198
+[02:53:28] PANIC FF HEADER COMPASS NOT READ at line 198
+[02:53:28] Header Matched  line - 199
+[02:53:28] PANIC FF HEADER COMPASS NOT READ at line 199
+[02:53:29] Header Matched  line - 200
+[02:53:29] PANIC FF HEADER COMPASS NOT READ at line 200
+[02:53:29] Image capture success at 49.93 seconds
+[02:53:29] Data saved as log/cam/cam3105_0253.log
+[02:53:49] Trying to send Command [Start Surveillance Mode]... 
+[02:53:49] Success! Command [Start Surveillance Mode] sent. 
+[02:53:49] Waiting for data..
+[02:53:54] Identification received : 303
+[02:53:54] Header Matched  line - 1
+[02:53:54] Header line 1 received at 5.19 seconds
+[02:53:54] PANIC FF HEADER COMPASS NOT READ at line 1
+[02:53:54] Header Matched  line - 2
+[02:53:54] PANIC FF HEADER COMPASS NOT READ at line 2
+[02:53:55] Header Matched  line - 3
+[02:53:55] PANIC FF HEADER COMPASS NOT READ at line 3
+[02:53:55] Header Matched  line - 4
+[02:53:55] PANIC FF HEADER COMPASS NOT READ at line 4
+[02:53:55] Header Matched  line - 5
+[02:53:55] PANIC FF HEADER COMPASS NOT READ at line 5
+[02:53:55] Header Matched  line - 6
+[02:53:55] PANIC FF HEADER COMPASS NOT READ at line 6
+[02:53:56] Header Matched  line - 7
+[02:53:56] PANIC FF HEADER COMPASS NOT READ at line 7
+[02:53:56] Header Matched  line - 8
+[02:53:56] PANIC FF HEADER COMPASS NOT READ at line 8
+[02:53:56] Header Matched  line - 9
+[02:53:56] PANIC FF HEADER COMPASS NOT READ at line 9
+[02:53:56] Header Matched  line - 10
+[02:53:56] PANIC FF HEADER COMPASS NOT READ at line 10
+[02:53:56] Header Matched  line - 11
+[02:53:56] PANIC FF HEADER COMPASS NOT READ at line 11
+[02:53:57] Header Matched  line - 12
+[02:53:57] PANIC FF HEADER COMPASS NOT READ at line 12
+[02:53:57] Header Matched  line - 13
+[02:53:57] PANIC FF HEADER COMPASS NOT READ at line 13
+[02:53:57] Header Matched  line - 14
+[02:53:57] PANIC FF HEADER COMPASS NOT READ at line 14
+[02:53:57] Header Matched  line - 15
+[02:53:57] PANIC FF HEADER COMPASS NOT READ at line 15
+[02:53:58] Header Matched  line - 16
+[02:53:58] PANIC FF HEADER COMPASS NOT READ at line 16
+[02:53:58] Header Matched  line - 17
+[02:53:58] PANIC FF HEADER COMPASS NOT READ at line 17
+[02:53:58] Header Matched  line - 18
+[02:53:58] PANIC FF HEADER COMPASS NOT READ at line 18
+[02:53:58] Header Matched  line - 19
+[02:53:58] PANIC FF HEADER COMPASS NOT READ at line 19
+[02:53:58] Header Matched  line - 20
+[02:53:58] PANIC FF HEADER COMPASS NOT READ at line 20
+[02:53:59] Header Matched  line - 21
+[02:53:59] PANIC FF HEADER COMPASS NOT READ at line 21
+[02:53:59] Header Matched  line - 22
+[02:53:59] PANIC FF HEADER COMPASS NOT READ at line 22
+[02:53:59] Header Matched  line - 23
+[02:53:59] PANIC FF HEADER COMPASS NOT READ at line 23
+[02:53:59] Header Matched  line - 24
+[02:53:59] PANIC FF HEADER COMPASS NOT READ at line 24
+[02:54:00] Header Matched  line - 25
+[02:54:00] PANIC FF HEADER COMPASS NOT READ at line 25
+[02:54:00] Header Matched  line - 26
+[02:54:00] PANIC FF HEADER COMPASS NOT READ at line 26
+[02:54:00] Header Matched  line - 27
+[02:54:00] PANIC FF HEADER COMPASS NOT READ at line 27
+[02:54:00] Header Matched  line - 28
+[02:54:00] PANIC FF HEADER COMPASS NOT READ at line 28
+[02:54:00] Header Matched  line - 29
+[02:54:00] PANIC FF HEADER COMPASS NOT READ at line 29
+[02:54:01] Header Matched  line - 30
+[02:54:01] PANIC FF HEADER COMPASS NOT READ at line 30
+[02:54:01] Header Matched  line - 31
+[02:54:01] PANIC FF HEADER COMPASS NOT READ at line 31
+[02:54:01] Header Matched  line - 32
+[02:54:01] PANIC FF HEADER COMPASS NOT READ at line 32
+[02:54:01] Header Matched  line - 33
+[02:54:01] PANIC FF HEADER COMPASS NOT READ at line 33
+[02:54:02] Header Matched  line - 34
+[02:54:02] PANIC FF HEADER COMPASS NOT READ at line 34
+[02:54:02] Header Matched  line - 35
+[02:54:02] PANIC FF HEADER COMPASS NOT READ at line 35
+[02:54:02] Header Matched  line - 36
+[02:54:02] PANIC FF HEADER COMPASS NOT READ at line 36
+[02:54:02] Header Matched  line - 37
+[02:54:02] PANIC FF HEADER COMPASS NOT READ at line 37
+[02:54:02] Header Matched  line - 38
+[02:54:02] PANIC FF HEADER COMPASS NOT READ at line 38
+[02:54:03] Header Matched  line - 39
+[02:54:03] PANIC FF HEADER COMPASS NOT READ at line 39
+[02:54:03] Header Matched  line - 40
+[02:54:03] PANIC FF HEADER COMPASS NOT READ at line 40
+[02:54:03] Header Matched  line - 41
+[02:54:03] PANIC FF HEADER COMPASS NOT READ at line 41
+[02:54:03] Header Matched  line - 42
+[02:54:03] PANIC FF HEADER COMPASS NOT READ at line 42
+[02:54:04] Header Matched  line - 43
+[02:54:04] PANIC FF HEADER COMPASS NOT READ at line 43
+[02:54:04] Header Matched  line - 44
+[02:54:04] PANIC FF HEADER COMPASS NOT READ at line 44
+[02:54:04] Header Matched  line - 45
+[02:54:04] PANIC FF HEADER COMPASS NOT READ at line 45
+[02:54:04] Header Matched  line - 46
+[02:54:04] PANIC FF HEADER COMPASS NOT READ at line 46
+[02:54:04] Header Matched  line - 47
+[02:54:04] PANIC FF HEADER COMPASS NOT READ at line 47
+[02:54:05] Header Matched  line - 48
+[02:54:05] PANIC FF HEADER COMPASS NOT READ at line 48
+[02:54:05] Header Matched  line - 49
+[02:54:05] PANIC FF HEADER COMPASS NOT READ at line 49
+[02:54:05] Header Matched  line - 50
+[02:54:05] PANIC FF HEADER COMPASS NOT READ at line 50
+[02:54:05] Header Matched  line - 51
+[02:54:05] PANIC FF HEADER COMPASS NOT READ at line 51
+[02:54:06] Header Matched  line - 52
+[02:54:06] PANIC FF HEADER COMPASS NOT READ at line 52
+[02:54:06] Header Matched  line - 53
+[02:54:06] PANIC FF HEADER COMPASS NOT READ at line 53
+[02:54:06] Header Matched  line - 54
+[02:54:06] PANIC FF HEADER COMPASS NOT READ at line 54
+[02:54:06] Header Matched  line - 55
+[02:54:06] PANIC FF HEADER COMPASS NOT READ at line 55
+[02:54:06] Header Matched  line - 56
+[02:54:07] PANIC FF HEADER COMPASS NOT READ at line 56
+[02:54:07] Header Matched  line - 57
+[02:54:07] PANIC FF HEADER COMPASS NOT READ at line 57
+[02:54:07] Header Matched  line - 58
+[02:54:07] PANIC FF HEADER COMPASS NOT READ at line 58
+[02:54:07] Header Matched  line - 59
+[02:54:07] PANIC FF HEADER COMPASS NOT READ at line 59
+[02:54:07] Header Matched  line - 60
+[02:54:07] PANIC FF HEADER COMPASS NOT READ at line 60
+[02:54:08] Header Matched  line - 61
+[02:54:08] PANIC FF HEADER COMPASS NOT READ at line 61
+[02:54:08] Header Matched  line - 62
+[02:54:08] PANIC FF HEADER COMPASS NOT READ at line 62
+[02:54:08] Header Matched  line - 63
+[02:54:08] PANIC FF HEADER COMPASS NOT READ at line 63
+[02:54:08] Header Matched  line - 64
+[02:54:08] PANIC FF HEADER COMPASS NOT READ at line 64
+[02:54:08] Header Matched  line - 65
+[02:54:09] PANIC FF HEADER COMPASS NOT READ at line 65
+[02:54:09] Header Matched  line - 66
+[02:54:09] PANIC FF HEADER COMPASS NOT READ at line 66
+[02:54:09] Header Matched  line - 67
+[02:54:09] PANIC FF HEADER COMPASS NOT READ at line 67
+[02:54:09] Header Matched  line - 68
+[02:54:09] PANIC FF HEADER COMPASS NOT READ at line 68
+[02:54:09] Header Matched  line - 69
+[02:54:09] PANIC FF HEADER COMPASS NOT READ at line 69
+[02:54:10] Header Matched  line - 70
+[02:54:10] PANIC FF HEADER COMPASS NOT READ at line 70
+[02:54:10] Header Matched  line - 71
+[02:54:10] PANIC FF HEADER COMPASS NOT READ at line 71
+[02:54:10] Header Matched  line - 72
+[02:54:10] PANIC FF HEADER COMPASS NOT READ at line 72
+[02:54:10] Header Matched  line - 73
+[02:54:10] PANIC FF HEADER COMPASS NOT READ at line 73
+[02:54:10] Header Matched  line - 74
+[02:54:11] PANIC FF HEADER COMPASS NOT READ at line 74
+[02:54:11] Header Matched  line - 75
+[02:54:11] PANIC FF HEADER COMPASS NOT READ at line 75
+[02:54:11] Header Matched  line - 76
+[02:54:11] PANIC FF HEADER COMPASS NOT READ at line 76
+[02:54:11] Header Matched  line - 77
+[02:54:11] PANIC FF HEADER COMPASS NOT READ at line 77
+[02:54:11] Header Matched  line - 78
+[02:54:11] PANIC FF HEADER COMPASS NOT READ at line 78
+[02:54:12] Header Matched  line - 79
+[02:54:12] PANIC FF HEADER COMPASS NOT READ at line 79
+[02:54:12] Header Matched  line - 80
+[02:54:12] PANIC FF HEADER COMPASS NOT READ at line 80
+[02:54:12] Header Matched  line - 81
+[02:54:12] PANIC FF HEADER COMPASS NOT READ at line 81
+[02:54:12] Header Matched  line - 82
+[02:54:12] PANIC FF HEADER COMPASS NOT READ at line 82
+[02:54:13] Header Matched  line - 83
+[02:54:13] PANIC FF HEADER COMPASS NOT READ at line 83
+[02:54:13] Header Matched  line - 84
+[02:54:13] PANIC FF HEADER COMPASS NOT READ at line 84
+[02:54:13] Header Matched  line - 85
+[02:54:13] PANIC FF HEADER COMPASS NOT READ at line 85
+[02:54:13] Header Matched  line - 86
+[02:54:13] PANIC FF HEADER COMPASS NOT READ at line 86
+[02:54:13] Header Matched  line - 87
+[02:54:13] PANIC FF HEADER COMPASS NOT READ at line 87
+[02:54:14] Header Matched  line - 88
+[02:54:14] PANIC FF HEADER COMPASS NOT READ at line 88
+[02:54:14] Header Matched  line - 89
+[02:54:14] PANIC FF HEADER COMPASS NOT READ at line 89
+[02:54:14] Header Matched  line - 90
+[02:54:14] PANIC FF HEADER COMPASS NOT READ at line 90
+[02:54:14] Header Matched  line - 91
+[02:54:14] PANIC FF HEADER COMPASS NOT READ at line 91
+[02:54:15] Header Matched  line - 92
+[02:54:15] PANIC FF HEADER COMPASS NOT READ at line 92
+[02:54:15] Header Matched  line - 93
+[02:54:15] PANIC FF HEADER COMPASS NOT READ at line 93
+[02:54:15] Header Matched  line - 94
+[02:54:15] PANIC FF HEADER COMPASS NOT READ at line 94
+[02:54:15] Header Matched  line - 95
+[02:54:15] PANIC FF HEADER COMPASS NOT READ at line 95
+[02:54:15] Header Matched  line - 96
+[02:54:15] PANIC FF HEADER COMPASS NOT READ at line 96
+[02:54:16] Header Matched  line - 97
+[02:54:16] PANIC FF HEADER COMPASS NOT READ at line 97
+[02:54:16] Header Matched  line - 98
+[02:54:16] PANIC FF HEADER COMPASS NOT READ at line 98
+[02:54:16] Header Matched  line - 99
+[02:54:16] PANIC FF HEADER COMPASS NOT READ at line 99
+[02:54:16] Header Matched  line - 100
+[02:54:16] PANIC FF HEADER COMPASS NOT READ at line 100
+[02:54:17] Header Matched  line - 101
+[02:54:17] PANIC FF HEADER COMPASS NOT READ at line 101
+[02:54:17] Header Matched  line - 102
+[02:54:17] PANIC FF HEADER COMPASS NOT READ at line 102
+[02:54:17] Header Matched  line - 103
+[02:54:17] PANIC FF HEADER COMPASS NOT READ at line 103
+[02:54:17] Header Matched  line - 104
+[02:54:17] PANIC FF HEADER COMPASS NOT READ at line 104
+[02:54:17] Header Matched  line - 105
+[02:54:17] PANIC FF HEADER COMPASS NOT READ at line 105
+[02:54:18] Header Matched  line - 106
+[02:54:18] PANIC FF HEADER COMPASS NOT READ at line 106
+[02:54:18] Header Matched  line - 107
+[02:54:18] PANIC FF HEADER COMPASS NOT READ at line 107
+[02:54:18] Header Matched  line - 108
+[02:54:18] PANIC FF HEADER COMPASS NOT READ at line 108
+[02:54:18] Header Matched  line - 109
+[02:54:18] PANIC FF HEADER COMPASS NOT READ at line 109
+[02:54:19] Header Matched  line - 110
+[02:54:19] PANIC FF HEADER COMPASS NOT READ at line 110
+[02:54:19] Header Matched  line - 111
+[02:54:19] PANIC FF HEADER COMPASS NOT READ at line 111
+[02:54:19] Header Matched  line - 112
+[02:54:19] PANIC FF HEADER COMPASS NOT READ at line 112
+[02:54:19] Header Matched  line - 113
+[02:54:19] PANIC FF HEADER COMPASS NOT READ at line 113
+[02:54:19] Header Matched  line - 114
+[02:54:19] PANIC FF HEADER COMPASS NOT READ at line 114
+[02:54:20] Header Matched  line - 115
+[02:54:20] PANIC FF HEADER COMPASS NOT READ at line 115
+[02:54:20] Header Matched  line - 116
+[02:54:20] PANIC FF HEADER COMPASS NOT READ at line 116
+[02:54:20] Header Matched  line - 117
+[02:54:20] PANIC FF HEADER COMPASS NOT READ at line 117
+[02:54:20] Header Matched  line - 118
+[02:54:20] PANIC FF HEADER COMPASS NOT READ at line 118
+[02:54:21] Header Matched  line - 119
+[02:54:21] PANIC FF HEADER COMPASS NOT READ at line 119
+[02:54:21] Header Matched  line - 120
+[02:54:21] PANIC FF HEADER COMPASS NOT READ at line 120
+[02:54:21] Header Matched  line - 121
+[02:54:21] PANIC FF HEADER COMPASS NOT READ at line 121
+[02:54:21] Header Matched  line - 122
+[02:54:21] PANIC FF HEADER COMPASS NOT READ at line 122
+[02:54:21] Header Matched  line - 123
+[02:54:21] PANIC FF HEADER COMPASS NOT READ at line 123
+[02:54:22] Header Matched  line - 124
+[02:54:22] PANIC FF HEADER COMPASS NOT READ at line 124
+[02:54:22] Header Matched  line - 125
+[02:54:22] PANIC FF HEADER COMPASS NOT READ at line 125
+[02:54:22] Header Matched  line - 126
+[02:54:22] PANIC FF HEADER COMPASS NOT READ at line 126
+[02:54:22] Header Matched  line - 127
+[02:54:22] PANIC FF HEADER COMPASS NOT READ at line 127
+[02:54:23] Header Matched  line - 128
+[02:54:23] PANIC FF HEADER COMPASS NOT READ at line 128
+[02:54:23] Header Matched  line - 129
+[02:54:23] PANIC FF HEADER COMPASS NOT READ at line 129
+[02:54:23] Header Matched  line - 130
+[02:54:23] PANIC FF HEADER COMPASS NOT READ at line 130
+[02:54:23] Header Matched  line - 131
+[02:54:23] PANIC FF HEADER COMPASS NOT READ at line 131
+[02:54:23] Header Matched  line - 132
+[02:54:23] PANIC FF HEADER COMPASS NOT READ at line 132
+[02:54:24] Header Matched  line - 133
+[02:54:24] PANIC FF HEADER COMPASS NOT READ at line 133
+[02:54:24] Header Matched  line - 134
+[02:54:24] PANIC FF HEADER COMPASS NOT READ at line 134
+[02:54:24] Header Matched  line - 135
+[02:54:24] PANIC FF HEADER COMPASS NOT READ at line 135
+[02:54:24] Header Matched  line - 136
+[02:54:24] PANIC FF HEADER COMPASS NOT READ at line 136
+[02:54:25] Header Matched  line - 137
+[02:54:25] PANIC FF HEADER COMPASS NOT READ at line 137
+[02:54:25] Header Matched  line - 138
+[02:54:25] PANIC FF HEADER COMPASS NOT READ at line 138
+[02:54:25] Header Matched  line - 139
+[02:54:25] PANIC FF HEADER COMPASS NOT READ at line 139
+[02:54:25] Header Matched  line - 140
+[02:54:25] PANIC FF HEADER COMPASS NOT READ at line 140
+[02:54:25] Header Matched  line - 141
+[02:54:25] PANIC FF HEADER COMPASS NOT READ at line 141
+[02:54:26] Header Matched  line - 142
+[02:54:26] PANIC FF HEADER COMPASS NOT READ at line 142
+[02:54:26] Header Matched  line - 143
+[02:54:26] PANIC FF HEADER COMPASS NOT READ at line 143
+[02:54:26] Header Matched  line - 144
+[02:54:26] PANIC FF HEADER COMPASS NOT READ at line 144
+[02:54:26] Header Matched  line - 145
+[02:54:26] PANIC FF HEADER COMPASS NOT READ at line 145
+[02:54:27] Header Matched  line - 146
+[02:54:27] PANIC FF HEADER COMPASS NOT READ at line 146
+[02:54:27] Header Matched  line - 147
+[02:54:27] PANIC FF HEADER COMPASS NOT READ at line 147
+[02:54:27] Header Matched  line - 148
+[02:54:27] PANIC FF HEADER COMPASS NOT READ at line 148
+[02:54:27] Header Matched  line - 149
+[02:54:27] PANIC FF HEADER COMPASS NOT READ at line 149
+[02:54:27] Header Matched  line - 150
+[02:54:27] PANIC FF HEADER COMPASS NOT READ at line 150
+[02:54:28] Header Matched  line - 151
+[02:54:28] PANIC FF HEADER COMPASS NOT READ at line 151
+[02:54:28] Header Matched  line - 152
+[02:54:28] PANIC FF HEADER COMPASS NOT READ at line 152
+[02:54:28] Header Matched  line - 153
+[02:54:28] PANIC FF HEADER COMPASS NOT READ at line 153
+[02:54:28] Header Matched  line - 154
+[02:54:28] PANIC FF HEADER COMPASS NOT READ at line 154
+[02:54:29] Header Matched  line - 155
+[02:54:29] PANIC FF HEADER COMPASS NOT READ at line 155
+[02:54:29] Header Matched  line - 156
+[02:54:29] PANIC FF HEADER COMPASS NOT READ at line 156
+[02:54:29] Header Matched  line - 157
+[02:54:29] PANIC FF HEADER COMPASS NOT READ at line 157
+[02:54:29] Header Matched  line - 158
+[02:54:29] PANIC FF HEADER COMPASS NOT READ at line 158
+[02:54:29] Header Matched  line - 159
+[02:54:29] PANIC FF HEADER COMPASS NOT READ at line 159
+[02:54:30] Header Matched  line - 160
+[02:54:30] PANIC FF HEADER COMPASS NOT READ at line 160
+[02:54:30] Header Matched  line - 161
+[02:54:30] PANIC FF HEADER COMPASS NOT READ at line 161
+[02:54:30] Header Matched  line - 162
+[02:54:30] PANIC FF HEADER COMPASS NOT READ at line 162
+[02:54:30] Header Matched  line - 163
+[02:54:30] PANIC FF HEADER COMPASS NOT READ at line 163
+[02:54:31] Header Matched  line - 164
+[02:54:31] PANIC FF HEADER COMPASS NOT READ at line 164
+[02:54:31] Header Matched  line - 165
+[02:54:31] PANIC FF HEADER COMPASS NOT READ at line 165
+[02:54:31] Header Matched  line - 166
+[02:54:31] PANIC FF HEADER COMPASS NOT READ at line 166
+[02:54:31] Header Matched  line - 167
+[02:54:31] PANIC FF HEADER COMPASS NOT READ at line 167
+[02:54:31] Header Matched  line - 168
+[02:54:32] PANIC FF HEADER COMPASS NOT READ at line 168
+[02:54:32] Header Matched  line - 169
+[02:54:32] PANIC FF HEADER COMPASS NOT READ at line 169
+[02:54:32] Header Matched  line - 170
+[02:54:32] PANIC FF HEADER COMPASS NOT READ at line 170
+[02:54:32] Header Matched  line - 171
+[02:54:32] PANIC FF HEADER COMPASS NOT READ at line 171
+[02:54:32] Header Matched  line - 172
+[02:54:32] PANIC FF HEADER COMPASS NOT READ at line 172
+[02:54:33] Header Matched  line - 173
+[02:54:33] PANIC FF HEADER COMPASS NOT READ at line 173
+[02:54:33] Header Matched  line - 174
+[02:54:33] PANIC FF HEADER COMPASS NOT READ at line 174
+[02:54:33] Header Matched  line - 175
+[02:54:33] PANIC FF HEADER COMPASS NOT READ at line 175
+[02:54:33] Header Matched  line - 176
+[02:54:33] PANIC FF HEADER COMPASS NOT READ at line 176
+[02:54:33] Header Matched  line - 177
+[02:54:34] PANIC FF HEADER COMPASS NOT READ at line 177
+[02:54:34] Header Matched  line - 178
+[02:54:34] PANIC FF HEADER COMPASS NOT READ at line 178
+[02:54:34] Header Matched  line - 179
+[02:54:34] PANIC FF HEADER COMPASS NOT READ at line 179
+[02:54:34] Header Matched  line - 180
+[02:54:34] PANIC FF HEADER COMPASS NOT READ at line 180
+[02:54:34] Header Matched  line - 181
+[02:54:34] PANIC FF HEADER COMPASS NOT READ at line 181
+[02:54:35] Header Matched  line - 182
+[02:54:35] PANIC FF HEADER COMPASS NOT READ at line 182
+[02:54:35] Header Matched  line - 183
+[02:54:35] PANIC FF HEADER COMPASS NOT READ at line 183
+[02:54:35] Header Matched  line - 184
+[02:54:35] PANIC FF HEADER COMPASS NOT READ at line 184
+[02:54:35] Header Matched  line - 185
+[02:54:35] PANIC FF HEADER COMPASS NOT READ at line 185
+[02:54:36] Header Matched  line - 186
+[02:54:36] PANIC FF HEADER COMPASS NOT READ at line 186
+[02:54:36] Header Matched  line - 187
+[02:54:36] PANIC FF HEADER COMPASS NOT READ at line 187
+[02:54:36] Header Matched  line - 188
+[02:54:36] PANIC FF HEADER COMPASS NOT READ at line 188
+[02:54:36] Header Matched  line - 189
+[02:54:36] PANIC FF HEADER COMPASS NOT READ at line 189
+[02:54:36] Header Matched  line - 190
+[02:54:36] PANIC FF HEADER COMPASS NOT READ at line 190
+[02:54:37] Header Matched  line - 191
+[02:54:37] PANIC FF HEADER COMPASS NOT READ at line 191
+[02:54:37] Header Matched  line - 192
+[02:54:37] PANIC FF HEADER COMPASS NOT READ at line 192
+[02:54:37] Header Matched  line - 193
+[02:54:37] PANIC FF HEADER COMPASS NOT READ at line 193
+[02:54:37] Header Matched  line - 194
+[02:54:37] PANIC FF HEADER COMPASS NOT READ at line 194
+[02:54:38] Header Matched  line - 195
+[02:54:38] PANIC FF HEADER COMPASS NOT READ at line 195
+[02:54:38] Header Matched  line - 196
+[02:54:38] PANIC FF HEADER COMPASS NOT READ at line 196
+[02:54:38] Header Matched  line - 197
+[02:54:38] PANIC FF HEADER COMPASS NOT READ at line 197
+[02:54:38] Header Matched  line - 198
+[02:54:38] PANIC FF HEADER COMPASS NOT READ at line 198
+[02:54:38] Header Matched  line - 199
+[02:54:38] PANIC FF HEADER COMPASS NOT READ at line 199
+[02:54:39] Header Matched  line - 200
+[02:54:39] PANIC FF HEADER COMPASS NOT READ at line 200
+[02:54:39] Image capture success at 49.95 seconds
+[02:54:39] Data saved as log/cam/cam3105_0254.log
+[02:56:06] Trying to close COM8..
+[02:56:06] Success!
+[02:56:06] Trying to open COM8..
+[02:56:06] Success!
+[02:56:08] Trying to send Command [Start Surveillance Mode]... 
+[02:56:08] Success! Command [Start Surveillance Mode] sent. 
+[02:56:08] Waiting for data..
+[02:56:13] Identification received : 303
+[02:56:13] Header line 1 received at 5.13 seconds
+[02:56:58] Image capture success at 49.89 seconds
+[02:56:58] Data saved as log/cam/cam3105_0256.log
+[02:57:21] Trying to send Command [Start Surveillance Mode]... 
+[02:57:21] Success! Command [Start Surveillance Mode] sent. 
+[02:57:21] Waiting for data..
+[02:57:26] Identification received : 303
+[02:57:26] ERROR : Header Error : ÿ0
+[02:57:26] PANIC FF HEADER COMPASS NOT READ at line 1
+[02:57:57] PANIC FF HEADER COMPASS NOT READ at line 141
+[02:58:11] Image capture success at 49.90 seconds
+[02:58:11] Data saved as log/cam/cam3105_0258.log
+[02:59:57] Trying to send Command [Start Surveillance Mode]... 
+[02:59:57] Success! Command [Start Surveillance Mode] sent. 
+[02:59:57] Waiting for data..
+[03:00:02] Identification received : 303
+[03:00:02] ERROR : Header Error : ÿ0
+[03:00:02] PANIC FF HEADER COMPASS NOT READ at line 1
+[03:00:02] PANIC FF HEADER COMPASS NOT READ at line 3
+[03:00:03] 0xFF Error Received : 200 at line : 4
+[03:00:03] PANIC FF HEADER COMPASS NOT READ at line 9
+[03:00:47] Image capture success at 49.90 seconds
+[03:00:47] Data saved as log/cam/cam3105_0300.log
+[03:01:05] Trying to send Command [Start Surveillance Mode]... 
+[03:01:05] Success! Command [Start Surveillance Mode] sent. 
+[03:01:05] Waiting for data..
+[03:01:10] Identification received : 303
+[03:01:10] Header line 1 received at 5.18 seconds
+[03:01:55] Image capture success at 49.94 seconds
+[03:01:55] Data saved as log/cam/cam3105_0301.log
+[03:02:03] Picture has been rotated by -90 degrees
+[03:02:42] Picture has been rotated by -90 degrees
+[03:02:43] Picture has been rotated by 90 degrees
+[03:02:45] Picture saved as savedpic/cam3105_0302.png
+[03:03:38] Trying to close program... 
+[03:03:38] ERROR : COM port still opened
+[03:03:39] Trying to close COM8..
+[03:03:39] Success!
+[03:03:40] Trying to close program... 
+[03:03:40] Trying to close realterm... 
+[03:03:40] Success !
+[03:03:40] Terminal log saved as log/cam/ter3105_0303.log

@@ -26,7 +26,7 @@ public class JavaSerial {
    
     
     public static void main(String[] args) {
-        String defaultPort = "COM8";
+        String defaultPort = "COM9";
         
        
         portList = CommPortIdentifier.getPortIdentifiers();
@@ -84,7 +84,7 @@ public class JavaSerial {
                     int x=0;
                     try {
                         //String filename="sampledata/kamera6";
-                        String filename="sampledata/dataAccSampel";
+                        String filename="sampledata/kameraberkompas2";
                         FileInputStream fin = new FileInputStream(filename);
                         DataInputStream din = new DataInputStream(fin);
                         System.out.println("Total data available : "+din.available()+" bytes");

@@ -44,7 +44,7 @@ while(dataexist)
 		%tunggu sampai ada char available
 		pause(1E-6);
 		inc watchdog;
-		if(watchdog>75)
+		if(watchdog>10)
 			dataexist=0;
 			break;
 		end
@@ -87,14 +87,12 @@ end
 fclose(f1);
 invoke(handles.hrealterm,'stopcapture');
 
-%handles.accX = dataX;
-%handles.accY = dataY;
-%handles.accZ = dataZ;
+handles.isrunning = 0;	
+
 a=fix(clock);
 fname = sprintf('data%02d%02d_%02d%02d.log',a(3),a(2),a(4),a(5));
 copyfile(imbuffer,fname);
 movefile(fname,'log\');
 strtemp=sprintf('Data saved as log/%s',fname);
 set(handles.debug,'string',enquestr(strtemp));
-	
 guidata(hObject, handles);

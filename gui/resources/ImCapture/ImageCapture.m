@@ -31,18 +31,34 @@ function ImageCapture(hObject, eventdata, handles)
 	while(handles.hrealterm.charcount==0)
 		pause(1E-6);
 	end
-	char_minimum=0;
+	char_minimum=6;
+	try
+		HeaderID=fscanf(f1,'%c',1);
+		HeaderID=[HeaderID fscanf(f1,'%c',1)];
+		HeaderID=[HeaderID fscanf(f1,'%c',1)];
+		HeaderID=[HeaderID fscanf(f1,'%c',1)];
+		HeaderID=[HeaderID fscanf(f1,'%c',1)];
+		HeaderID=[HeaderID fscanf(f1,'%c',1)];
+		strtemp=sprintf('Identification received : %s', HeaderID(2:4));
+		set(handles.debug,'string',enquestr(strtemp));
+	catch
+	
+	end
+	
+	
 	current_row=1;
 	
-	while (current_row<vertical_length)
+	while (current_row<=vertical_length)
 		inc char_minimum;
 		value_read=0;%dummy
-		starterror=-2;
+		starterror=-1;
 		while(value_read~=255)
+			
 			while (handles.hrealterm.charcount<char_minimum)
 				pause(1E-6);
 				%tunggu sampai ada char available
 			end
+			
 			try
 				inc starterror;
 				value_read=cast(fscanf(f1,'%c',1),'uint8');
@@ -54,19 +70,19 @@ function ImageCapture(hObject, eventdata, handles)
 			inc char_minimum;
 		end
 
-		if(starterror>0)
+		if ((starterror>0)&&(current_row>1))
 			strtemp=sprintf('0xFF Error Received : %d at line : %d',starterror,current_row);
 			set(handles.debug,'string',enquestr(strtemp));
 		end
 
-		char_minimum=char_minimum+202;%jumlah graycode
-		%watchdog=0;
+		char_minimum=char_minimum+206;%jumlah data setelah FF
+		watchdog=0;
 		while (handles.hrealterm.charcount<char_minimum)
 			pause(1E-6);
-			%inc watchdog;
-			%if(watchdog>1000)
-			%	break;
-			%end
+			inc watchdog;
+			if(watchdog>30)
+				break;
+			end
 		end
 
 
@@ -86,8 +102,12 @@ function ImageCapture(hObject, eventdata, handles)
 						set(handles.debug,'string',enquestr(strtemp));
 					end
 				else
-					error('Header Mismatch line %d, got %d',current_row, headerval);
+					x = current_row;
+					current_row = headerval;
+					%error('Header Mismatch line %d, got %d',x, headerval);					
 				end
+				%final%strtemp=sprintf('Got header for line %d',current_row);
+				%final%set(handles.debug,'string',enquestr(strtemp));
 			else
 				error('Header Error : %s',headerstr);
 			end	
@@ -95,14 +115,6 @@ function ImageCapture(hObject, eventdata, handles)
 			strtemp=sprintf('ERROR : %s',ex.message);
 			set(handles.debug,'string',enquestr(strtemp));
 			value_read=0;
-		end
-
-		while (handles.hrealterm.charcount<char_minimum)
-			pause(1E-8);
-			%inc watchdog;
-			%if(watchdog>1000)
-			%	break;
-			%end
 		end
 
 		current_col=1;
@@ -120,14 +132,53 @@ function ImageCapture(hObject, eventdata, handles)
 			imdata(current_row,current_col) = value_read;
 			inc current_col;
 		end
-
-		inc current_row;
+		
+		
+		%%COMPASS READING
+		try
+			value_read=cast(fscanf(f1,'%c',1),'uint8');
+			x=0;
+			while(value_read~=255)
+				inc char_minimum;
+				inc x;
+				value_read=cast(fscanf(f1,'%c',1),'uint8');
+				
+			end
+			if (x>1)
+				strtemp=sprintf('PANIC FF HEADER COMPASS NOT READ at line %d',current_row);
+				set(handles.debug,'string',enquestr(strtemp));
+			end
+			
+			compassbyte1=cast(fscanf(f1,'%c',1),'uint8');
+			compassbyte2=cast(fscanf(f1,'%c',1),'uint8');
+			compassbyte3=cast(fscanf(f1,'%c',1),'uint8');
+			compasstr = strcat(compassbyte1,compassbyte2,compassbyte3);
+			[compasval, status] = str2num(compasstr);
+			
+			if(status)
+				C= imrotate(handles.cmpd,compasval,'crop');
+				set(handles.cmps,'CData',C);
+				drawnow;				
+			else
+				strtemp=sprintf('PANIC COMPASS invalid at %d read : %s',current_row,compasstr);
+				set(handles.debug,'string',enquestr(strtemp));
+			end	
+		catch ex
+			strtemp=sprintf('ERROR : %s',ex.message);
+			set(handles.debug,'string',enquestr(strtemp));
+			value_read=0;
+		end
+		
 
 		set(handles.ImageStatus,'String',sprintf('%2.1f%%',current_row/2));
 		if (not(mod(current_row,2)))
 			set(imHandle, 'CData', imdata);
 			drawnow;
 		end
+		
+		inc current_row;
+
+		
 	end
 	stop(T);
 	x=toc;

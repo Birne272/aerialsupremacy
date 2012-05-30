@@ -57,7 +57,7 @@ handles.output = hObject;
 pause on;
 
 %resources 
-addpath('resources');
+addpath(genpath('resources/'))
 
 %char encoding
 slCharacterEncoding('ISO-8859-1');
@@ -67,10 +67,8 @@ slCharacterEncoding('ISO-8859-1');
 handles.isrunning = 0;
 
 %terminal 
-a=fix(clock);
-fname = sprintf('ter%02d%02d_%02d%02d.log',a(3),a(2),a(4),a(5));
-logname = sprintf('log/term/%s',fname);
-enquestr('',1,9,logname);
+
+enquestr('',1,9,'termbuf');
 
 %Initializing Realterm Active X Server
 handles.hrealterm=actxserver('realterm.realtermintf'); 
@@ -85,7 +83,7 @@ handles.isConnected = 0;
 
 %Initializing Survelliance
 axes(handles.image);
-handles.imdata = rgb2gray(imread('resources\square.png'));
+handles.imdata = rgb2gray(imread('square.png'));
 %handles.imHandle = imshow(handles.imdata);
 imshow(handles.imdata);
 set(handles.debug,'string',enquestr('Survelliance Initialized'));
@@ -96,7 +94,7 @@ set(handles.imtime,'string','0.00');
 %set(gcf,'renderer','opengl');
 opengl software;
 axes(handles.compass);
-handles.cmpd = imread('resources\cmpd.png');
+handles.cmpd = imread('cmpd.png');
 cmps = imread('cmps.png');
 
 hold on;
@@ -114,10 +112,10 @@ for i=1:row
 		end
 	end
 end
-%%keyboard;
 set(H2, 'AlphaData', AMap);
 axis image;
 set(handles.debug,'string',enquestr('Compass Initialized'));
+%keyboard;
 
 %Initializing AccGraph
 axes(handles.acc);
@@ -241,7 +239,15 @@ try
 	strtemp=sprintf('Success !');
 	set(handles.debug,'string',enquestr(strtemp));
 	%delete(handles.hrealterm);
+	a=fix(clock);
+	fname = sprintf('ter%02d%02d_%02d%02d.log',a(3),a(2),a(4),a(5));
+	copyfile('termbuf',fname);
+	movefile(fname,'log\term\');
+	strtemp=sprintf('Terminal log saved as log/cam/%s',fname);
+	set(handles.debug,'string',enquestr(strtemp));
+	
 	enquestr('','','','','');
+	
 	% Hint: delete(hObject) closes the figure
 	delete(hObject);
 catch ex
@@ -344,7 +350,7 @@ try
 		case 1
 			% Atittude Monitoring Mode
 			invoke(handles.hrealterm,'ClearTerminal');
-			handles.hrealterm.PutString('77777');
+			handles.hrealterm.PutString('bbbbb');
 			strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
 			set(handles.debug,'string',enquestr(strtemp));
 			
@@ -370,7 +376,6 @@ try
 			set(handles.debug,'string',enquestr(strtemp));
 			
 	end
-	%handles = guihandles;
 	%handles.isrunning = 0;	
 	%guidata(hObject, handles);	
 catch ex

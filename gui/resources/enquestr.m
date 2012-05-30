@@ -19,7 +19,8 @@ switch nargin
         qstr = cell(maxr,1);
         a=fix(clock);
         timestamp = sprintf('[%2.2d:%2.2d:%2.2d] ',a(4),a(5),a(6));
-		msg = sprintf('Terminal Initialized and logged at %s',fname);
+		%msg = sprintf('Terminal Initialized and logged at %s',fname);
+		msg = sprintf('Terminal Initialized');
         temp = [timestamp msg];	
 		
 	case 5
