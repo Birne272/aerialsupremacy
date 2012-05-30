@@ -156,4 +156,5 @@ function ImageCapture(hObject, eventdata, handles)
 	set(handles.savebutton,'Enable','on');
 	%keyboard;
 	
+	handles.isrunning = 0;		
 	guidata(hObject,handles);

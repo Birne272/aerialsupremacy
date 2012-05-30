@@ -370,9 +370,9 @@ try
 			set(handles.debug,'string',enquestr(strtemp));
 			
 	end
-	handles = guihandles;
-	handles.isrunning = 0;	
-	guidata(hObject, handles);	
+	%handles = guihandles;
+	%handles.isrunning = 0;	
+	%guidata(hObject, handles);	
 catch ex
 	strtemp=sprintf('ERROR : %s',ex.message);
 	set(handles.debug,'string',enquestr(strtemp));
