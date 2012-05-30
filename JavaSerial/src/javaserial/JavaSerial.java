@@ -84,6 +84,7 @@ public class JavaSerial {
                     int x=0;
                     try {
                         String filename="sampledata/kamera6";
+                        //String filename="sampledata/dataAccSampel";
                         FileInputStream fin = new FileInputStream(filename);
                         DataInputStream din = new DataInputStream(fin);
                         System.out.println("Total data available : "+din.available()+" bytes");

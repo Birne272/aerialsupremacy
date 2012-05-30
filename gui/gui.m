@@ -22,7 +22,7 @@ function varargout = gui(varargin)
 
 % Edit the above text to modify the response to help gui
 
-% Last Modified by GUIDE v2.5 28-May-2012 02:17:16
+% Last Modified by GUIDE v2.5 30-May-2012 02:14:03
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -62,7 +62,11 @@ addpath('resources');
 %char encoding
 slCharacterEncoding('ISO-8859-1');
 
-%terminal que
+
+%global
+handles.isrunning = 0;
+
+%terminal 
 a=fix(clock);
 fname = sprintf('ter%02d%02d_%02d%02d.log',a(3),a(2),a(4),a(5));
 logname = sprintf('log/term/%s',fname);
@@ -82,15 +86,37 @@ handles.isConnected = 0;
 %Initializing Survelliance
 axes(handles.image);
 handles.imdata = rgb2gray(imread('resources\square.png'));
+%handles.imHandle = imshow(handles.imdata);
 imshow(handles.imdata);
 set(handles.debug,'string',enquestr('Survelliance Initialized'));
 set(handles.ImageStatus,'string','0.0%');
 set(handles.imtime,'string','0.00');
 
 %Initializing Compas
+%set(gcf,'renderer','opengl');
+opengl software;
 axes(handles.compass);
-handles.compassimg = imread('resources\compass.png');
-handle.compassg = imshow(handles.compassimg);
+handles.cmpd = imread('resources\cmpd.png');
+cmps = imread('cmps.png');
+
+hold on;
+handles.cmps = imshow(handles.cmpd);
+H2=imshow(cmps);
+hold off;
+%keyboard;
+[row col c] = size(cmps);
+AMap = ones(row,col);
+x=0;
+for i=1:row
+	for j=1:col
+		if ((cmps(i,j,1)==0)&&(cmps(i,j,2)==168)&&(cmps(i,j,3)==89))
+			AMap(i,j) = 0;
+		end
+	end
+end
+%%keyboard;
+set(H2, 'AlphaData', AMap);
+axis image;
 set(handles.debug,'string',enquestr('Compass Initialized'));
 
 %Initializing AccGraph
@@ -100,17 +126,21 @@ handles.accX = zeros(handles.ncell ,1);
 handles.accY = zeros(handles.ncell ,1);
 handles.accZ = zeros(handles.ncell ,1);
 hold on;
-handles.HandleAccX = plot (handles.accX,'r-');   
-handles.HandleAccY = plot (handles.accY,'g-'); 
-handles.HandleAccZ = plot (handles.accZ,'b-');  
+handles.HX = plot (handles.accX,'r-');   
+handles.HY = plot (handles.accY,'g-'); 
+handles.HZ = plot (handles.accZ,'b-');  
+hold off;
 legend('AccX','AccY','AccZ'); 
-axis([0 700 -500 500]);
+
+%MAX AXIS
+handles.maxY = 500;
+axis([0 700 -handles.maxY handles.maxY]);
 
 set(gca,'XTickMode','manual');
 set(gca,'XTick',[0 100 200 300 400 500 600 700]);
 set(gca,'YTickMode','manual');
-%MARK
-set(gca,'YTick',[-500 -250 0 250 500]);
+%-500 250 0 250 500
+set(gca,'YTick',getTickY(handles.maxY, 2));
 
 xlabel('Time (x10 ms)');
 ylabel('Acceleration (m/s^2)'); 
@@ -308,7 +338,8 @@ try
 	% 1 Start Atittude Monitoring Mode
 	% 2 Start Surveillance Mode
 	% 3 Halt All Data Transmission
-	
+	handles.isrunning = 1;
+	guidata(hObject, handles);	
 	switch command_val
 		case 1
 			% Atittude Monitoring Mode
@@ -317,6 +348,9 @@ try
 			strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
 			set(handles.debug,'string',enquestr(strtemp));
 			
+			tic;
+			AtMon(hObject, eventdata, handles);
+			
 		case 2
 			% Surveillance Mode
 			invoke(handles.hrealterm,'ClearTerminal'); 
@@ -324,6 +358,7 @@ try
 			strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
 			set(handles.debug,'string',enquestr(strtemp));
 			drawnow;
+			
 			tic;
 			ImageCapture(hObject, eventdata, handles);
 			
@@ -335,180 +370,25 @@ try
 			set(handles.debug,'string',enquestr(strtemp));
 			
 	end
-	
+	handles = guihandles;
+	handles.isrunning = 0;	
+	guidata(hObject, handles);	
 catch ex
 	strtemp=sprintf('ERROR : %s',ex.message);
 	set(handles.debug,'string',enquestr(strtemp));
 end
 
 
-function ImageCapture(hObject, eventdata, handles)
-	% Timer utk Elapsed Time
-	T = timer();
-	T.ExecutionMode = 'fixedRate';
-	T.Period = 0.01;
-	T.TimerFcn = {@ImUpdateTime, hObject, eventdata, handles};
-	start(T);
-	
-	imbuffer = 'sbuf';
-	handles.hrealterm.CaptureFile=strcat(cd,'\',imbuffer);
-	invoke(handles.hrealterm,'startcapture'); 	
-	
-	%disable image function
-	set(handles.rot90button,'Enable','off');
-	set(handles.rotm90button,'Enable','off');
-	set(handles.savebutton,'Enable','off');
 
-	f1 = fopen(imbuffer);
-
-	axes(handles.image);
-	horizontal_length=200;
-	vertical_length=200;
-	imdata = cast(zeros(vertical_length,horizontal_length),'uint8');
-	imHandle = imshow(imdata);
-	drawnow;
-		
-	strtemp=sprintf('Waiting for data..');
-	set(handles.debug,'string',enquestr(strtemp));
-	% tunggu sampai ada karakter di RX
-	while(handles.hrealterm.charcount==0)
-		pause(1E-6);
-	end
-	char_minimum=0;
-	current_row=1;
-	
-	while (current_row<vertical_length)
-		inc char_minimum;
-		value_read=0;%dummy
-		starterror=-2;
-		while(value_read~=255)
-			while (handles.hrealterm.charcount<char_minimum)
-				pause(1E-6);
-				%tunggu sampai ada char available
-			end
-			try
-				inc starterror;
-				value_read=cast(fscanf(f1,'%c',1),'uint8');
-			catch ex
-				strtemp=sprintf('ERROR : %s',ex.message);
-				set(handles.debug,'string',enquestr(strtemp));
-				value_read=0;
-			end
-			inc char_minimum;
-		end
-
-		if(starterror>0)
-			strtemp=sprintf('0xFF Error Received : %d at line : %d',starterror,current_row);
-			set(handles.debug,'string',enquestr(strtemp));
-		end
-
-		char_minimum=char_minimum+202;%jumlah graycode
-		%watchdog=0;
-		while (handles.hrealterm.charcount<char_minimum)
-			pause(1E-6);
-			%inc watchdog;
-			%if(watchdog>1000)
-			%	break;
-			%end
-		end
-
-
-		try
-			headerbyte1=cast(fscanf(f1,'%c',1),'uint8');
-			while (headerbyte1==255)
-				pause(1E-8);
-				headerbyte1=cast(fscanf(f1,'%c',1),'uint8');
-				inc char_minimum;
-			end
-			headerbyte2=cast(fscanf(f1,'%c',1),'uint8');
-			headerbyte3=cast(fscanf(f1,'%c',1),'uint8');
-			headerstr = strcat(headerbyte1,headerbyte2,headerbyte3);
-			[headerval, status] = str2num(headerstr);
-			if(status)
-				if (headerval==current_row)
-					%strtemp=sprintf('Header Matched  line - %d',current_row);
-					%set(handles.debug,'string',enquestr(strtemp));
-					if (headerval==1)
-						x=toc;
-						strtemp=sprintf('Header line 1 received at %3.2f seconds',x);
-						set(handles.debug,'string',enquestr(strtemp));
-					end
-				else
-					error('Header Mismatch line %d, got %d',current_row, headerval);
-				end
-			else
-				error('Header Error : %s',headerstr);
-			end	
-		catch ex
-			strtemp=sprintf('ERROR : %s',ex.message);
-			set(handles.debug,'string',enquestr(strtemp));
-			value_read=0;
-		end
-
-		while (handles.hrealterm.charcount<char_minimum)
-			pause(1E-8);
-			%inc watchdog;
-			%if(watchdog>1000)
-			%	break;
-			%end
-		end
-
-		current_col=1;
-		while (current_col<horizontal_length)	
-			try
-				value_read=cast(fscanf(f1,'%c',1),'uint8');
-				if (isempty(value_read))
-					error('Empty Value');
-				end
-			catch ex
-				strtemp=sprintf('ERROR : %s',ex.message);
-				set(handles.debug,'string',enquestr(strtemp));
-				value_read=1;
-			end
-			imdata(current_row,current_col) = value_read;
-			inc current_col;
-		end
-
-		inc current_row;
-
-		set(handles.ImageStatus,'String',sprintf('%2.1f%%',current_row/2));
-		if (not(mod(current_row,2)))
-			set(imHandle, 'CData', imdata);
-			drawnow;
-		end
-	end
-	stop(T);
-	x=toc;
-	strtemp=sprintf('Image capture success at %3.2f seconds',x); 
-	set(handles.debug,'string',enquestr(strtemp));
-	%keyboard;
-	
-	fclose(f1);
-	invoke(handles.hrealterm,'stopcapture');
-	
-	% simpan data ke global
-	handles.imdata=imdata;
-	
-	a=fix(clock);
-	fname = sprintf('cam%02d%02d_%02d%02d.log',a(3),a(2),a(4),a(5));
-	copyfile(imbuffer,fname);
-	movefile(fname,'log\cam\');
-	strtemp=sprintf('Data saved as log/cam/%s',fname);
-	set(handles.debug,'string',enquestr(strtemp));
-	
-	%enable image function
-	set(handles.rot90button,'Enable','on');
-	set(handles.rotm90button,'Enable','on');
-	set(handles.savebutton,'Enable','on');
-	
-guidata(hObject, handles);
 
 % --- Executes on button press in rot90button.
 function rot90button_Callback(hObject, eventdata, handles)
 % hObject    handle to rot90button (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
 axes(handles.image);
+%keyboard;
 handles.imdata = imrotate(handles.imdata,90,'bilinear');
 imshow(handles.imdata);
 
@@ -523,6 +403,7 @@ function rotm90button_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 axes(handles.image);
+%keyboard;
 handles.imdata = imrotate(handles.imdata,-90,'bilinear');
 imshow(handles.imdata);
 
@@ -586,6 +467,9 @@ try
 	else
 		strtemp=sprintf('Trying to close COM%d..',portVal);
 		set(handles.debug,'string',enquestr(strtemp));
+		if(handles.isrunning)
+			error('COM port in use.');
+		end		
 		handles.hrealterm.PortOpen=0; 
 		handles.isConnected = (handles.hrealterm.PortOpen~=0);
 		strtemp=sprintf('Success!');
@@ -594,7 +478,14 @@ try
 	
 catch ex
 	handle.isConnected = 0;
-	strtemp=sprintf('ERROR : %s',ex.message);
+	%keyboard;
+	if(~isempty(strfind(ex.message,'comport doesn''t exist')))
+		strtemp='ERROR : COM port doesn''t exist';
+	elseif(~isempty(strfind(ex.message,'device already open')))
+		strtemp='ERROR : COM port already in use';
+	else
+		strtemp=sprintf('ERROR : %s',ex.message);
+	end
 	set(handles.debug,'string',enquestr(strtemp));
 end
 
@@ -613,20 +504,20 @@ end
 
 guidata(hObject, handles);
 
-
 % --- Executes on slider movement.
-function scale_Callback(hObject, eventdata, handles)
-% hObject    handle to scale (see GCBO)
+function AccSlider_Callback(hObject, eventdata, handles)
+% hObject    handle to AccSlider (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+AccSliderCB( hObject, eventdata, handles);
 
 
 % --- Executes during object creation, after setting all properties.
-function scale_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to scale (see GCBO)
+function AccSlider_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to AccSlider (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
