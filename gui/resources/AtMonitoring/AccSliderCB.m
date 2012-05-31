@@ -4,11 +4,11 @@ function AccSliderCB( hObject, eventdata, handles  )
 %fprintf('aaaaaaaaa\n');
 %keyboard;
 axes(handles.acc);
-vals = get(hObject,'Value')+0.01;
+vals = get(hObject,'Value')+0.1;
 maxs = get(hObject,'Max');
-handles.maxY = 500*vals;
+handles.maxY = 20*vals;
 
-axis([0 700 -handles.maxY handles.maxY]);
+axis([0 handles.ncell -handles.maxY handles.maxY]);
 set(gca,'YTick',getTickY(handles.maxY, 5));
 
 guidata(hObject, handles);

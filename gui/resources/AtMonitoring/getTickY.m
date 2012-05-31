@@ -6,6 +6,10 @@ for i=-nTick:nTick;
 	temp(nTick+i+1) = maxY * (i/nTick); 
 end
 %keyboard;
-out = fix(temp);
+if (maxY>=5)
+	out = fix(temp);
+else
+	out = temp;
+end
 end
 

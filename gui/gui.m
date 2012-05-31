@@ -119,7 +119,7 @@ set(handles.debug,'string',enquestr('Compass Initialized'));
 
 %Initializing AccGraph
 axes(handles.acc);
-handles.ncell = 700;
+handles.ncell = 200;
 handles.accX = zeros(handles.ncell ,1);  
 handles.accY = zeros(handles.ncell ,1);
 handles.accZ = zeros(handles.ncell ,1);
@@ -128,20 +128,20 @@ handles.HX = plot (handles.accX,'r-');
 handles.HY = plot (handles.accY,'g-'); 
 handles.HZ = plot (handles.accZ,'b-');  
 hold off;
-legend('AccX','AccY','AccZ'); 
+%legend('AccX','AccY','AccZ'); 
 
 %MAX AXIS
-handles.maxY = 500;
-axis([0 700 -handles.maxY handles.maxY]);
+handles.maxY = 10;
+axis([0 handles.ncell -handles.maxY handles.maxY]);
 
 set(gca,'XTickMode','manual');
-set(gca,'XTick',[0 100 200 300 400 500 600 700]);
+set(gca,'XTick',getTickX(handles.ncell,5));
 set(gca,'YTickMode','manual');
 %-500 250 0 250 500
 set(gca,'YTick',getTickY(handles.maxY, 2));
 
 xlabel('Time (x10 ms)');
-ylabel('Acceleration (m/s^2)'); 
+ylabel('Acceleration (x0.1 m/s^2)'); 
 grid on;
 
 set(handles.debug,'string',enquestr('Acceleration Graph Initialized'));
@@ -150,13 +150,13 @@ set(handles.debug,'string',enquestr('Acceleration Graph Initialized'));
 %Initializing Model 3D
 axes(handles.model3d);
 [F, V, C] = rndread('roket.stl');
-p = patch('faces', F, 'vertices' ,V);
-set(p, 'facec', 'r');              % Set the face color (force it)
-set(p, 'facec', 'flat');            % Set the face color flat
-set(p, 'FaceVertexCData', C);       % Set the color (from file)
-%set(p, 'facealpha',.4)             % Use for transparency
-set(p, 'EdgeColor','none');         % Set the edge color
-%set(p, 'EdgeColor',[1 0 0 ]);      % Use to see triangles, if needed.
+handles.rpatch = patch('faces', F, 'vertices' ,V);
+set(handles.rpatch, 'facec', 'r');              % Set the face color (force it)
+set(handles.rpatch, 'facec', 'flat');            % Set the face color flat
+set(handles.rpatch, 'FaceVertexCData', C);       % Set the color (from file)
+%set(handles.rpatch, 'facealpha',.4)             % Use for transparency
+set(handles.rpatch, 'EdgeColor','none');         % Set the edge color
+%set(handles.rpatch, 'EdgeColor',[1 0 0 ]);      % Use to see triangles, if needed.
 light;                               % add a default light
 daspect([1 1 1]) ;                   % Setting the aspect ratio
 view(3);                            % Isometric view
@@ -169,8 +169,8 @@ vsize = maxv(V); %attempt to determine the maximum xyz vertex.
 drawnow;
 axis([-vsize vsize -vsize vsize -vsize vsize]);
 V=V*1.5;
-V=rx(90)*V;
-set(p,'Vertices',V(1:3,:)');   
+%V=rx(90)*V;
+set(handles.rpatch,'Vertices',V(1:3,:)');   
 drawnow;
 handles.roketvertex=V;
 
@@ -335,6 +335,11 @@ try
 	if (~handles.isConnected)
 		error('Not connected to any COM port');
 	end
+catch ex
+	strtemp=sprintf('ERROR : %s',ex.message);
+	set(handles.debug,'string',enquestr(strtemp));
+end
+
 	command_list = get(handles.commandlist,'String');
 	command_val = get(handles.commandlist,'Value');
 	command_cur=command_list{command_val};
@@ -369,6 +374,8 @@ try
 			ImageCapture(hObject, eventdata, handles);
 			
 		case 3
+			handles.isrunning = 0;
+			guidata(hObject, handles);	
 			% Halt All Data Transmission 
 			invoke(handles.hrealterm,'ClearTerminal');
 			handles.hrealterm.PutString('#####');	
@@ -378,10 +385,6 @@ try
 	end
 	%handles.isrunning = 0;	
 	%guidata(hObject, handles);	
-catch ex
-	strtemp=sprintf('ERROR : %s',ex.message);
-	set(handles.debug,'string',enquestr(strtemp));
-end
 
 
 
