@@ -33,7 +33,7 @@ end
 myheader = 303;
 
 %%%%%%%%%% FILTER
-H = fir1(15, 0.2, 'low');
+H = fir1(31, 0.2, 'low');
 %%filter stat 
 % 0 unfiltered 
 % 1 acc saja 
@@ -47,7 +47,7 @@ switch filterstat
 end
 
 %update tiap xdivisor sample
-xdivisor = 2;
+xdivisor = 6;
 imbuffer = 'sbuf';
 handles.hrealterm.CaptureFile=strcat(cd,'\',imbuffer);
 invoke(handles.hrealterm,'startcapture'); 	
@@ -129,7 +129,7 @@ while(1)
 	dataY(cur_sample)=ProcessedData(2);
 	dataZ(cur_sample)=ProcessedData(3);
 	
-	%if(mod(cur_sample,xdivisor)==0)
+	if(mod(cur_sample,xdivisor)==0)
 		
 		%model3d
 		%              roll pitch yaw
@@ -137,9 +137,9 @@ while(1)
 		%psi(yaw) theta(pitch) phi(roll) 
 		%%%%%%  ini yang boleh diganti
 		nv = defVertex;
-		nv = rz(ProcessedData(4))*nv;
-		nv = rx(ProcessedData(5))*nv;
-		nv = ry(ProcessedData(6))*nv;
+		nv = ry(-ProcessedData(6))*nv;
+		nv = rx(-ProcessedData(5))*nv;
+		nv = rz(-ProcessedData(4))*nv;
 		
 
 		set(handles.rpatch,'Vertices',nv(1:3,:)');       
@@ -156,7 +156,7 @@ while(1)
 		
 		
 		drawnow
-	%end;
+	end;
 end
 
 fclose(f1);

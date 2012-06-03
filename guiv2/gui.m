@@ -119,7 +119,7 @@ set(handles.debug,'string',enquestr('Compass Initialized'));
 
 %Initializing AccGraph
 axes(handles.acc);
-handles.ncell = 200;
+handles.ncell = 500;
 handles.accX = zeros(handles.ncell ,1);  
 handles.accY = zeros(handles.ncell ,1);
 handles.accZ = zeros(handles.ncell ,1);
@@ -140,8 +140,8 @@ set(gca,'YTickMode','manual');
 %-500 250 0 250 500
 set(gca,'YTick',getTickY(handles.maxY, 2));
 
-xlabel('Time (x10 ms)');
-ylabel('Acceleration (x0.1 m/s^2)'); 
+xlabel('Time (x20 ms)');
+ylabel('Acceleration (m/s^2)'); 
 grid on;
 
 set(handles.debug,'string',enquestr('Acceleration Graph Initialized'));
