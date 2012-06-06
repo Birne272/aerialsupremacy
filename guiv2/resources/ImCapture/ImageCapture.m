@@ -19,7 +19,7 @@ function ImageCapture(hObject, eventdata, handles)
 	f1 = fopen(imbuffer);
 
 	axes(handles.image);
-	horizontal_length=200;
+	horizontal_length=199;
 	vertical_length=200;
 	imdata = cast(zeros(vertical_length,horizontal_length),'uint8');
 	%set(handles.imHandle, 'CData', imdata);

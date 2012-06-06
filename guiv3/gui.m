@@ -80,8 +80,8 @@ handles.isConnected = 0;
 %0 normal 1 minimized
 
 axes(handles.sideheader);
-I=imread('sidergraksa.png');
-%I=imread('siderraise.png');
+%I=imread('sidergraksa.png');
+I=imread('siderraise.png');
 imshow(I);
 
 %Initializing Survelliance
@@ -381,7 +381,9 @@ function commandbutton_Callback(hObject, eventdata, handles)
 			guidata(hObject, handles);	
 			% Halt All Data Transmission 
 			invoke(handles.hrealterm,'ClearTerminal');
-			handles.hrealterm.PutString('#####');	
+            for i=1:5
+                handles.hrealterm.PutString('###########################################################################################################################################################################################################');
+            end
 			strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
 			set(handles.debug,'string',enquestr(strtemp));
 	

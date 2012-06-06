@@ -47,7 +47,7 @@ switch filterstat
 end
 
 %update tiap xdivisor sample
-xdivisor = 6;
+xdivisor = 4;
 imbuffer = 'sbuf';
 handles.hrealterm.CaptureFile=strcat(cd,'\',imbuffer);
 invoke(handles.hrealterm,'startcapture'); 	

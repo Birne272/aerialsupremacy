@@ -33,7 +33,7 @@ end
 myheader = 303;
 
 %%%%%%%%%% FILTER
-H = fir1(31, 0.2, 'low');
+H = fir1(31, 0.1, 'low');
 %%filter stat 
 % 0 unfiltered 
 % 1 acc saja 
@@ -47,7 +47,7 @@ switch filterstat
 end
 
 %update tiap xdivisor sample
-xdivisor = 6;
+xdivisor = 2;
 imbuffer = 'sbuf';
 handles.hrealterm.CaptureFile=strcat(cd,'\',imbuffer);
 invoke(handles.hrealterm,'startcapture'); 	
@@ -118,8 +118,8 @@ while(1)
 	end
 
 	
-	strtemp=sprintf('acc: %3.2f %3.2f %3.2f eul: %3.2f %3.2f %3.2f ',ProcessedData(1),ProcessedData(2),ProcessedData(3),ProcessedData(4),ProcessedData(5),ProcessedData(6));
-	set(handles.debug,'string',enquestr(strtemp));
+	%strtemp=sprintf('acc: %3.2f %3.2f %3.2f eul: %3.2f %3.2f %3.2f ',ProcessedData(1),ProcessedData(2),ProcessedData(3),ProcessedData(4),ProcessedData(5),ProcessedData(6));
+	%set(handles.debug,'string',enquestr(strtemp));
 	%data = rtfilter(rawdata(2:4));
 	%data(3) = rawdata(4);
 	%data(2)=rtfilter(rawdata(2))+300;
