@@ -81,7 +81,7 @@ public class JavaSerial {
                     } catch (Exception e) {
                     }
                     */
-                    /*
+                    
                     int x=0;
                     try {
                         String filename="sampledata/imagelatestomg";
@@ -98,8 +98,8 @@ public class JavaSerial {
                     } catch (Exception e) {
                     }
                     System.out.println("Total data sent : "+x+" bytes");
-                    */
                     
+                    /*
                     try {
                         outputStream.write(0xD);
                         outputStream.write('3');
@@ -125,7 +125,7 @@ public class JavaSerial {
 
                     } catch (Exception e) {
                     }
-                    
+                    */
                     try {
                        Thread.sleep(2000);  // Be sure data is xferred before closing
                     } catch (Exception e) {}

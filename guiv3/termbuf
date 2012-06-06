@@ -1,226 +1,240 @@
-[21:25:14] Terminal Initialized
-[21:25:15] Survelliance Initialized
-[21:25:15] Compass Initialized
-[21:25:15] Acceleration Graph Initialized
-[21:25:16] Model 3D Initialized
-[21:25:17] Trying to open COM10..
-[21:25:17] Success!
-[21:25:18] Trying to send Command [Start Surveillance Mode]... 
-[21:25:18] Success! Command [Start Surveillance Mode] sent. 
-[21:25:18] Waiting for data..
-[21:25:22] Identification received :  303
-[21:25:22] Header Matched  line - 1
-[21:25:22] Header line 1 received at 4.24 seconds
-[21:25:23] Header Matched  line - 2
-[21:25:23] Header Matched  line - 3
-[21:25:23] Header Matched  line - 4
-[21:25:23] Header Matched  line - 5
-[21:25:23] Header Matched  line - 6
-[21:25:24] Header Matched  line - 7
-[21:25:24] Header Matched  line - 8
-[21:25:24] Header Matched  line - 9
-[21:25:24] Header Matched  line - 10
-[21:25:25] Header Matched  line - 11
-[21:25:25] Header Matched  line - 12
-[21:25:25] Header Matched  line - 13
-[21:25:25] Header Matched  line - 14
-[21:25:25] Header Matched  line - 15
-[21:25:26] Header Matched  line - 16
-[21:25:26] Header Matched  line - 17
-[21:25:26] Header Matched  line - 18
-[21:25:26] Header Matched  line - 19
-[21:25:27] Header Matched  line - 20
-[21:25:27] Header Matched  line - 21
-[21:25:27] Header Matched  line - 22
-[21:25:27] Header Matched  line - 23
-[21:25:27] Header Matched  line - 24
-[21:25:28] Header Matched  line - 25
-[21:25:28] Header Matched  line - 26
-[21:25:28] Header Matched  line - 27
-[21:25:28] Header Matched  line - 28
-[21:25:29] Header Matched  line - 29
-[21:25:29] Header Matched  line - 30
-[21:25:29] Header Matched  line - 31
-[21:25:29] Header Matched  line - 32
-[21:25:29] Header Matched  line - 33
-[21:25:30] Header Matched  line - 34
-[21:25:30] Header Matched  line - 35
-[21:25:30] Header Matched  line - 36
-[21:25:30] Header Matched  line - 37
-[21:25:31] Header Matched  line - 38
-[21:25:31] Header Matched  line - 39
-[21:25:31] Header Matched  line - 40
-[21:25:31] Header Matched  line - 41
-[21:25:31] Header Matched  line - 42
-[21:25:32] Header Matched  line - 43
-[21:25:32] Header Matched  line - 44
-[21:25:32] Header Matched  line - 45
-[21:25:32] Header Matched  line - 46
-[21:25:32] Header Matched  line - 47
-[21:25:33] Header Matched  line - 48
-[21:25:33] Header Matched  line - 49
-[21:25:33] Header Matched  line - 50
-[21:25:33] Header Matched  line - 51
-[21:25:34] Header Matched  line - 52
-[21:25:34] Header Matched  line - 53
-[21:25:34] Header Matched  line - 54
-[21:25:34] Header Matched  line - 55
-[21:25:34] Header Matched  line - 56
-[21:25:35] Header Matched  line - 57
-[21:25:35] Header Matched  line - 58
-[21:25:35] Header Matched  line - 59
-[21:25:35] Header Matched  line - 60
-[21:25:36] Header Matched  line - 61
-[21:25:36] Header Matched  line - 62
-[21:25:36] Header Matched  line - 63
-[21:25:36] Header Matched  line - 64
-[21:25:36] Header Matched  line - 65
-[21:25:37] Header Matched  line - 66
-[21:25:37] Header Matched  line - 67
-[21:25:37] Header Matched  line - 68
-[21:25:37] Header Matched  line - 69
-[21:25:38] Header Matched  line - 70
-[21:25:38] Header Matched  line - 71
-[21:25:38] Header Matched  line - 72
-[21:25:38] Header Matched  line - 73
-[21:25:38] Header Matched  line - 74
-[21:25:39] Header Matched  line - 75
-[21:25:39] Header Matched  line - 76
-[21:25:39] Header Matched  line - 77
-[21:25:39] Header Matched  line - 78
-[21:25:40] Header Matched  line - 79
-[21:25:40] Header Matched  line - 80
-[21:25:40] Header Matched  line - 81
-[21:25:40] Header Matched  line - 82
-[21:25:40] Header Matched  line - 83
-[21:25:41] Header Matched  line - 84
-[21:25:41] Header Matched  line - 85
-[21:25:41] Header Matched  line - 86
-[21:25:41] Header Matched  line - 87
-[21:25:42] Header Matched  line - 88
-[21:25:42] Header Matched  line - 89
-[21:25:42] Header Matched  line - 90
-[21:25:42] Header Matched  line - 91
-[21:25:42] Header Matched  line - 92
-[21:25:43] Header Matched  line - 93
-[21:25:43] Header Matched  line - 94
-[21:25:43] Header Matched  line - 95
-[21:25:43] Header Matched  line - 96
-[21:25:44] Header Matched  line - 97
-[21:25:44] Header Matched  line - 98
-[21:25:44] Header Matched  line - 99
-[21:25:44] Header Matched  line - 100
-[21:25:44] Header Matched  line - 101
-[21:25:45] Header Matched  line - 102
-[21:25:45] Header Matched  line - 103
-[21:25:45] Header Matched  line - 104
-[21:25:45] Header Matched  line - 105
-[21:25:46] Header Matched  line - 106
-[21:25:46] Header Matched  line - 107
-[21:25:46] Header Matched  line - 108
-[21:25:46] Header Matched  line - 109
-[21:25:46] Header Matched  line - 110
-[21:25:47] Header Matched  line - 111
-[21:25:47] Header Matched  line - 112
-[21:25:47] Header Matched  line - 113
-[21:25:47] Header Matched  line - 114
-[21:25:48] Header Matched  line - 115
-[21:25:48] Header Matched  line - 116
-[21:25:48] Header Matched  line - 117
-[21:25:48] Header Matched  line - 118
-[21:25:48] Header Matched  line - 119
-[21:25:49] Header Matched  line - 120
-[21:25:49] Header Matched  line - 121
-[21:25:49] Header Matched  line - 122
-[21:25:49] Header Matched  line - 123
-[21:25:49] Header Matched  line - 124
-[21:25:50] Header Matched  line - 125
-[21:25:50] Header Matched  line - 126
-[21:25:50] Header Matched  line - 127
-[21:25:50] Header Matched  line - 128
-[21:25:51] Header Matched  line - 129
-[21:25:51] Header Matched  line - 130
-[21:25:51] Header Matched  line - 131
-[21:25:51] Header Matched  line - 132
-[21:25:51] Header Matched  line - 133
-[21:25:52] Header Matched  line - 134
-[21:25:52] Header Matched  line - 135
-[21:25:52] Header Matched  line - 136
-[21:25:52] Header Matched  line - 137
-[21:25:53] Header Matched  line - 138
-[21:25:53] Header Matched  line - 139
-[21:25:53] Header Matched  line - 140
-[21:25:53] Header Matched  line - 141
-[21:25:53] Header Matched  line - 142
-[21:25:54] Header Matched  line - 143
-[21:25:54] Header Matched  line - 144
-[21:25:54] Header Matched  line - 145
-[21:25:54] Header Matched  line - 146
-[21:25:55] Header Matched  line - 147
-[21:25:55] Header Matched  line - 148
-[21:25:55] Header Matched  line - 149
-[21:25:55] Header Matched  line - 150
-[21:25:55] Header Matched  line - 151
-[21:25:56] Header Matched  line - 152
-[21:25:56] Header Matched  line - 153
-[21:25:56] Header Matched  line - 154
-[21:25:56] Header Matched  line - 155
-[21:25:57] Header Matched  line - 156
-[21:25:57] Header Matched  line - 157
-[21:25:57] Header Matched  line - 158
-[21:25:57] Header Matched  line - 159
-[21:25:57] Header Matched  line - 160
-[21:25:58] Header Matched  line - 161
-[21:25:58] Header Matched  line - 162
-[21:25:58] Header Matched  line - 163
-[21:25:58] Header Matched  line - 164
-[21:25:59] Header Matched  line - 165
-[21:25:59] Header Matched  line - 166
-[21:25:59] Header Matched  line - 167
-[21:25:59] Header Matched  line - 168
-[21:25:59] Header Matched  line - 169
-[21:26:00] Header Matched  line - 170
-[21:26:00] Header Matched  line - 171
-[21:26:00] Header Matched  line - 172
-[21:26:00] Header Matched  line - 173
-[21:26:01] Header Matched  line - 174
-[21:26:01] Header Matched  line - 175
-[21:26:01] Header Matched  line - 176
-[21:26:01] Header Matched  line - 177
-[21:26:01] Header Matched  line - 178
-[21:26:02] Header Matched  line - 179
-[21:26:02] Header Matched  line - 180
-[21:26:02] Header Matched  line - 181
-[21:26:02] Header Matched  line - 182
-[21:26:03] Header Matched  line - 183
-[21:26:03] Header Matched  line - 184
-[21:26:03] Header Matched  line - 185
-[21:26:03] Header Matched  line - 186
-[21:26:03] Header Matched  line - 187
-[21:26:04] Header Matched  line - 188
-[21:26:04] Header Matched  line - 189
-[21:26:04] Header Matched  line - 190
-[21:26:04] Header Matched  line - 191
-[21:26:04] Header Matched  line - 192
-[21:26:05] Header Matched  line - 193
-[21:26:05] Header Matched  line - 194
-[21:26:05] Header Matched  line - 195
-[21:26:05] Header Matched  line - 196
-[21:26:06] Header Matched  line - 197
-[21:26:06] Header Matched  line - 198
-[21:26:06] Header Matched  line - 199
-[21:26:07] Header Matched  line - 200
-[21:26:07] Image capture success at 48.56 seconds
-[21:26:07] Data saved as log/cam/cam0606_2126.log
-[21:26:28] Trying to close program... 
-[21:26:28] ERROR : COM port still opened
-[21:26:32] Picture has been rotated by 90 degrees
-[21:26:33] Picture has been rotated by -90 degrees
-[21:27:25] Trying to close program... 
-[21:27:25] ERROR : COM port still opened
-[21:27:26] Trying to close COM10..
-[21:27:26] Success!
-[21:27:27] Trying to close program... 
-[21:27:27] Trying to close realterm... 
-[21:27:28] Success !
-[21:27:28] Terminal log saved as log/cam/ter0606_2127.log
+[21:32:45] Terminal Initialized
+[21:32:46] Survelliance Initialized
+[21:32:46] Compass Initialized
+[21:32:46] Acceleration Graph Initialized
+[21:32:47] Model 3D Initialized
+[21:33:04] Trying to open COM10..
+[21:33:04] Success!
+[21:33:06] Trying to send Command [Start Surveillance Mode]... 
+[21:33:06] Success! Command [Start Surveillance Mode] sent. 
+[21:33:06] Waiting for data..
+[21:33:08] Identification received :  303
+[21:33:08] Header Matched  line - 1
+[21:33:08] Header line 1 received at 2.08 seconds
+[21:33:08] Header Matched  line - 2
+[21:33:08] Header Matched  line - 3
+[21:33:09] Header Matched  line - 4
+[21:33:09] Header Matched  line - 5
+[21:33:09] Header Matched  line - 6
+[21:33:09] Header Matched  line - 7
+[21:33:09] Header Matched  line - 8
+[21:33:10] Header Matched  line - 9
+[21:33:10] Header Matched  line - 10
+[21:33:10] Header Matched  line - 11
+[21:33:10] Header Matched  line - 12
+[21:33:11] Header Matched  line - 13
+[21:33:11] Header Matched  line - 14
+[21:33:11] Header Matched  line - 15
+[21:33:11] Header Matched  line - 16
+[21:33:11] Header Matched  line - 17
+[21:33:12] Header Matched  line - 18
+[21:33:12] Header Matched  line - 19
+[21:33:12] Header Matched  line - 20
+[21:33:12] Header Matched  line - 21
+[21:33:13] Header Matched  line - 22
+[21:33:13] Header Matched  line - 23
+[21:33:13] Header Matched  line - 24
+[21:33:13] Header Matched  line - 25
+[21:33:13] Header Matched  line - 26
+[21:33:14] Header Matched  line - 27
+[21:33:14] Header Matched  line - 28
+[21:33:14] Header Matched  line - 29
+[21:33:14] Header Matched  line - 30
+[21:33:14] Header Matched  line - 31
+[21:33:15] Header Matched  line - 32
+[21:33:15] Header Matched  line - 33
+[21:33:15] Header Matched  line - 34
+[21:33:15] Header Matched  line - 35
+[21:33:16] Header Matched  line - 36
+[21:33:16] Header Matched  line - 37
+[21:33:16] Header Matched  line - 38
+[21:33:16] Header Matched  line - 39
+[21:33:16] Header Matched  line - 40
+[21:33:17] Header Matched  line - 41
+[21:33:17] Header Matched  line - 42
+[21:33:17] Header Matched  line - 43
+[21:33:17] Header Matched  line - 44
+[21:33:18] Header Matched  line - 45
+[21:33:18] Header Matched  line - 46
+[21:33:18] Header Matched  line - 47
+[21:33:18] Header Matched  line - 48
+[21:33:18] Header Matched  line - 49
+[21:33:19] Header Matched  line - 50
+[21:33:19] Header Matched  line - 51
+[21:33:19] Header Matched  line - 52
+[21:33:19] Header Matched  line - 53
+[21:33:20] Header Matched  line - 54
+[21:33:20] Header Matched  line - 55
+[21:33:20] Header Matched  line - 56
+[21:33:20] Header Matched  line - 57
+[21:33:20] Header Matched  line - 58
+[21:33:21] Header Matched  line - 59
+[21:33:21] Header Matched  line - 60
+[21:33:21] Header Matched  line - 61
+[21:33:21] Header Matched  line - 62
+[21:33:22] Header Matched  line - 63
+[21:33:22] Header Matched  line - 64
+[21:33:22] Header Matched  line - 65
+[21:33:22] Header Matched  line - 66
+[21:33:22] Header Matched  line - 67
+[21:33:23] Header Matched  line - 68
+[21:33:23] Header Matched  line - 69
+[21:33:23] Header Matched  line - 70
+[21:33:23] Header Matched  line - 71
+[21:33:24] Header Matched  line - 72
+[21:33:24] Header Matched  line - 73
+[21:33:24] Header Matched  line - 74
+[21:33:24] Header Matched  line - 75
+[21:33:24] Header Matched  line - 76
+[21:33:25] Header Matched  line - 77
+[21:33:25] Header Matched  line - 78
+[21:33:25] Header Matched  line - 79
+[21:33:25] Header Matched  line - 80
+[21:33:26] Header Matched  line - 81
+[21:33:26] Header Matched  line - 82
+[21:33:26] Header Matched  line - 83
+[21:33:26] Header Matched  line - 84
+[21:33:26] Header Matched  line - 85
+[21:33:27] Header Matched  line - 86
+[21:33:27] Header Matched  line - 87
+[21:33:27] Header Matched  line - 88
+[21:33:27] Header Matched  line - 89
+[21:33:28] Header Matched  line - 90
+[21:33:28] Header Matched  line - 91
+[21:33:28] Header Matched  line - 92
+[21:33:28] Header Matched  line - 93
+[21:33:28] Header Matched  line - 94
+[21:33:29] Header Matched  line - 95
+[21:33:29] Header Matched  line - 96
+[21:33:29] Header Matched  line - 97
+[21:33:29] Header Matched  line - 98
+[21:33:29] Header Matched  line - 99
+[21:33:30] Header Matched  line - 100
+[21:33:30] Header Matched  line - 101
+[21:33:30] Header Matched  line - 102
+[21:33:30] Header Matched  line - 103
+[21:33:31] Header Matched  line - 104
+[21:33:31] Header Matched  line - 105
+[21:33:31] Header Matched  line - 106
+[21:33:31] Header Matched  line - 107
+[21:33:31] Header Matched  line - 108
+[21:33:32] Header Matched  line - 109
+[21:33:32] Header Matched  line - 110
+[21:33:32] Header Matched  line - 111
+[21:33:32] Header Matched  line - 112
+[21:33:33] Header Matched  line - 113
+[21:33:33] Header Matched  line - 114
+[21:33:33] Header Matched  line - 115
+[21:33:33] Header Matched  line - 116
+[21:33:33] Header Matched  line - 117
+[21:33:34] Header Matched  line - 118
+[21:33:34] Header Matched  line - 119
+[21:33:34] Header Matched  line - 120
+[21:33:34] Header Matched  line - 121
+[21:33:35] Header Matched  line - 122
+[21:33:35] Header Matched  line - 123
+[21:33:35] Header Matched  line - 124
+[21:33:35] Header Matched  line - 125
+[21:33:35] Header Matched  line - 126
+[21:33:36] Header Matched  line - 127
+[21:33:36] Header Matched  line - 128
+[21:33:36] Header Matched  line - 129
+[21:33:36] Header Matched  line - 130
+[21:33:37] Header Matched  line - 131
+[21:33:37] Header Matched  line - 132
+[21:33:37] Header Matched  line - 133
+[21:33:37] Header Matched  line - 134
+[21:33:37] Header Matched  line - 135
+[21:33:38] Header Matched  line - 136
+[21:33:38] Header Matched  line - 137
+[21:33:38] Header Matched  line - 138
+[21:33:38] Header Matched  line - 139
+[21:33:39] Header Matched  line - 140
+[21:33:39] Header Matched  line - 141
+[21:33:39] Header Matched  line - 142
+[21:33:39] Header Matched  line - 143
+[21:33:39] Header Matched  line - 144
+[21:33:40] Header Matched  line - 145
+[21:33:40] Header Matched  line - 146
+[21:33:40] Header Matched  line - 147
+[21:33:40] Header Matched  line - 148
+[21:33:41] Header Matched  line - 149
+[21:33:41] Header Matched  line - 150
+[21:33:41] Header Matched  line - 151
+[21:33:41] Header Matched  line - 152
+[21:33:41] Header Matched  line - 153
+[21:33:42] Header Matched  line - 154
+[21:33:42] Header Matched  line - 155
+[21:33:42] Header Matched  line - 156
+[21:33:42] Header Matched  line - 157
+[21:33:43] Header Matched  line - 158
+[21:33:43] Header Matched  line - 159
+[21:33:43] Header Matched  line - 160
+[21:33:43] Header Matched  line - 161
+[21:33:43] Header Matched  line - 162
+[21:33:44] Header Matched  line - 163
+[21:33:44] Header Matched  line - 164
+[21:33:44] Header Matched  line - 165
+[21:33:44] Header Matched  line - 166
+[21:33:45] Header Matched  line - 167
+[21:33:45] Header Matched  line - 168
+[21:33:45] Header Matched  line - 169
+[21:33:45] Header Matched  line - 170
+[21:33:45] Header Matched  line - 171
+[21:33:46] Header Matched  line - 172
+[21:33:46] Header Matched  line - 173
+[21:33:46] Header Matched  line - 174
+[21:33:46] Header Matched  line - 175
+[21:33:46] Header Matched  line - 176
+[21:33:47] Header Matched  line - 177
+[21:33:47] Header Matched  line - 178
+[21:33:47] Header Matched  line - 179
+[21:33:47] Header Matched  line - 180
+[21:33:48] Header Matched  line - 181
+[21:33:48] Header Matched  line - 182
+[21:33:48] Header Matched  line - 183
+[21:33:48] Header Matched  line - 184
+[21:33:48] Header Matched  line - 185
+[21:33:49] Header Matched  line - 186
+[21:33:49] Header Matched  line - 187
+[21:33:49] Header Matched  line - 188
+[21:33:49] Header Matched  line - 189
+[21:33:50] Header Matched  line - 190
+[21:33:50] Header Matched  line - 191
+[21:33:50] Header Matched  line - 192
+[21:33:50] Header Matched  line - 193
+[21:33:50] Header Matched  line - 194
+[21:33:51] Header Matched  line - 195
+[21:33:51] Header Matched  line - 196
+[21:33:51] Header Matched  line - 197
+[21:33:51] Header Matched  line - 198
+[21:33:52] Header Matched  line - 199
+[21:33:52] Header Matched  line - 200
+[21:33:52] Image capture success at 46.04 seconds
+[21:33:52] Data saved as log/cam/cam0606_2133.log
+[21:33:53] Picture has been rotated by 90 degrees
+[21:33:55] Picture has been rotated by -90 degrees
+[21:33:55] Picture has been rotated by -90 degrees
+[21:34:14] Picture has been rotated by 90 degrees
+[21:34:14] Picture has been rotated by 90 degrees
+[21:34:15] Picture has been rotated by 90 degrees
+[21:34:15] Picture has been rotated by 90 degrees
+[21:34:23] Picture has been rotated by 90 degrees
+[21:34:23] Picture has been rotated by -90 degrees
+[21:34:26] Trying to close program... 
+[21:34:26] ERROR : COM port still opened
+[21:34:27] Trying to close program... 
+[21:34:27] ERROR : COM port still opened
+[21:34:35] Trying to close program... 
+[21:34:35] ERROR : COM port still opened
+[21:34:36] Trying to close program... 
+[21:34:36] ERROR : COM port still opened
+[21:34:36] Trying to close program... 
+[21:34:36] ERROR : COM port still opened
+[21:34:39] Picture saved as savedpic/cam0606_2134.png
+[21:34:41] Trying to close COM10..
+[21:34:41] Success!
+[21:34:42] Trying to close program... 
+[21:34:42] Trying to close realterm... 
+[21:34:42] Success !
+[21:34:42] Terminal log saved as log/cam/ter0606_2134.log
