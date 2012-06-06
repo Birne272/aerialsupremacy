@@ -19,7 +19,7 @@ function ImageCapture(hObject, eventdata, handles)
 	f1 = fopen(imbuffer);
 
 	axes(handles.image);
-	horizontal_length=200;
+	horizontal_length=201;
 	vertical_length=200;
 	imdata = cast(zeros(vertical_length,horizontal_length),'uint8');
 	%set(handles.imHandle, 'CData', imdata);
@@ -103,8 +103,8 @@ function ImageCapture(hObject, eventdata, handles)
 			[headerval, status] = str2num(headerstr);
 			if(status)
 				if (headerval==current_row)
-					%strtemp=sprintf('Header Matched  line - %d',current_row);
-					%set(handles.debug,'string',enquestr(strtemp));
+					strtemp=sprintf('Header Matched  line - %d',current_row);
+					set(handles.debug,'string',enquestr(strtemp));
 					if (headerval==1)
 						x=toc;
 						strtemp=sprintf('Header line 1 received at %3.2f seconds',x);
@@ -113,7 +113,7 @@ function ImageCapture(hObject, eventdata, handles)
 				else
 					x = current_row;
 					current_row = headerval;
-					error('Header Mismatch line %d, got %d',x, headerval);					
+					error('Header Mismatch expected %d, got %d',x, headerval);					
 				end
 				%final%strtemp=sprintf('Got header for line %d',current_row);
 				%final%set(handles.debug,'string',enquestr(strtemp));
@@ -151,8 +151,8 @@ function ImageCapture(hObject, eventdata, handles)
 				inc char_minimum;
 				inc x;
 				value_read=cast(fscanf(f1,'%c',1),'uint8');
-				
-			end
+            end
+            fprintf('%d --> %d',current_row, x);
 			if (x>(200-horizontal_length+1))
 				strtemp=sprintf('PANIC FF HEADER COMPASS NOT READ at line %d',current_row);
 				set(handles.debug,'string',enquestr(strtemp));
