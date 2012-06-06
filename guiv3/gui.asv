@@ -22,7 +22,7 @@ function varargout = gui(varargin)
 
 % Edit the above text to modify the response to help gui
 
-% Last Modified by GUIDE v2.5 30-May-2012 02:14:03
+% Last Modified by GUIDE v2.5 06-Jun-2012 16:10:16
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -57,7 +57,7 @@ handles.output = hObject;
 pause on;
 
 %resources 
-addpath('resources');
+addpath(genpath('resources/'))
 
 %char encoding
 slCharacterEncoding('ISO-8859-1');
@@ -67,10 +67,7 @@ slCharacterEncoding('ISO-8859-1');
 handles.isrunning = 0;
 
 %terminal 
-a=fix(clock);
-fname = sprintf('ter%02d%02d_%02d%02d.log',a(3),a(2),a(4),a(5));
-logname = sprintf('log/term/%s',fname);
-enquestr('',1,9,logname);
+enquestr('',1,9,'termbuf');
 
 %Initializing Realterm Active X Server
 handles.hrealterm=actxserver('realterm.realtermintf'); 
@@ -85,17 +82,21 @@ handles.isConnected = 0;
 
 %Initializing Survelliance
 axes(handles.image);
-handles.imdata = rgb2gray(imread('resources\square.png'));
-handles.imHandle = imshow(handles.imdata);
+handles.imdata = rgb2gray(imread('square.png'));
+%handles.imHandle = imshow(handles.imdata);
+imshow(handles.imdata);
 set(handles.debug,'string',enquestr('Survelliance Initialized'));
 set(handles.ImageStatus,'string','0.0%');
 set(handles.imtime,'string','0.00');
+
+axes(handles.sideheader);
+I=imrea('sidergraksa.png
 
 %Initializing Compas
 %set(gcf,'renderer','opengl');
 opengl software;
 axes(handles.compass);
-handles.cmpd = imread('resources\cmpd.png');
+handles.cmpd = imread('cmpd.png');
 cmps = imread('cmps.png');
 
 hold on;
@@ -113,14 +114,14 @@ for i=1:row
 		end
 	end
 end
-%%keyboard;
 set(H2, 'AlphaData', AMap);
 axis image;
 set(handles.debug,'string',enquestr('Compass Initialized'));
+%keyboard;
 
 %Initializing AccGraph
 axes(handles.acc);
-handles.ncell = 700;
+handles.ncell = 500;
 handles.accX = zeros(handles.ncell ,1);  
 handles.accY = zeros(handles.ncell ,1);
 handles.accZ = zeros(handles.ncell ,1);
@@ -129,25 +130,21 @@ handles.HX = plot (handles.accX,'r-');
 handles.HY = plot (handles.accY,'g-'); 
 handles.HZ = plot (handles.accZ,'b-');  
 hold off;
-legend('AccX','AccY','AccZ'); 
+legend1 = legend('AccX','AccY','AccZ'); 
+set(legend1,'Orientation','horizontal','Units','characters',...
+	'Position',[32.4782505910165 20.0691452991453 50.7044917257683 1.74153846153846]);
 
 %MAX AXIS
-handles.maxY = 500;
-axis([0 700 -handles.maxY handles.maxY]);
+handles.maxY = 10;
+axis([0 handles.ncell -handles.maxY handles.maxY]);
 
 set(gca,'XTickMode','manual');
-set(gca,'XTick',[0 100 200 300 400 500 600 700]);
+set(gca,'XTick',getTickX(handles.ncell,10));
 set(gca,'YTickMode','manual');
 %-500 250 0 250 500
-set(gca,'YTick',getTickY(handles.maxY, 2));
+set(gca,'YTick',getTickY(handles.maxY, 5));
 
-%keyboard;
-% SLIDER LISTENER
-%hListener = addlistener(handles.AccSlider,'ActionEvent',{@AccSliderCB, hObject, eventdata, handles});
-
-
-
-xlabel('Time (x10 ms)');
+xlabel('Time (x20 ms)');
 ylabel('Acceleration (m/s^2)'); 
 grid on;
 
@@ -157,13 +154,13 @@ set(handles.debug,'string',enquestr('Acceleration Graph Initialized'));
 %Initializing Model 3D
 axes(handles.model3d);
 [F, V, C] = rndread('roket.stl');
-p = patch('faces', F, 'vertices' ,V);
-set(p, 'facec', 'r');              % Set the face color (force it)
-set(p, 'facec', 'flat');            % Set the face color flat
-set(p, 'FaceVertexCData', C);       % Set the color (from file)
-%set(p, 'facealpha',.4)             % Use for transparency
-set(p, 'EdgeColor','none');         % Set the edge color
-%set(p, 'EdgeColor',[1 0 0 ]);      % Use to see triangles, if needed.
+handles.rpatch = patch('faces', F, 'vertices' ,V);
+set(handles.rpatch, 'facec', 'r');              % Set the face color (force it)
+set(handles.rpatch, 'facec', 'flat');            % Set the face color flat
+set(handles.rpatch, 'FaceVertexCData', C);       % Set the color (from file)
+%set(handles.rpatch, 'facealpha',.4)             % Use for transparency
+set(handles.rpatch, 'EdgeColor','none');         % Set the edge color
+%set(handles.rpatch, 'EdgeColor',[1 0 0 ]);      % Use to see triangles, if needed.
 light;                               % add a default light
 daspect([1 1 1]) ;                   % Setting the aspect ratio
 view(3);                            % Isometric view
@@ -175,15 +172,15 @@ V = [V(1,:); V(2,:); V(3,:); ones(1,length(V))];
 vsize = maxv(V); %attempt to determine the maximum xyz vertex. 
 drawnow;
 axis([-vsize vsize -vsize vsize -vsize vsize]);
-V=V*1.5;
-V=rx(90)*V;
-set(p,'Vertices',V(1:3,:)');   
+V=V*1.2;
+%V=rx(90)*V;
+set(handles.rpatch,'Vertices',V(1:3,:)');   
 drawnow;
 handles.roketvertex=V;
 
 set(handles.debug,'string',enquestr('Model 3D Initialized'));
 
-%xlabel('X'),ylabel('Y'),zlabel('Z')
+%xlabel('North'),ylabel(''),zlabel('')
 
 %keyboard;
 
@@ -246,7 +243,15 @@ try
 	strtemp=sprintf('Success !');
 	set(handles.debug,'string',enquestr(strtemp));
 	%delete(handles.hrealterm);
+	a=fix(clock);
+	fname = sprintf('ter%02d%02d_%02d%02d.log',a(3),a(2),a(4),a(5));
+	copyfile('termbuf',fname);
+	movefile(fname,'log\term\');
+	strtemp=sprintf('Terminal log saved as log/cam/%s',fname);
+	set(handles.debug,'string',enquestr(strtemp));
+	
 	enquestr('','','','','');
+	
 	% Hint: delete(hObject) closes the figure
 	delete(hObject);
 catch ex
@@ -334,6 +339,11 @@ try
 	if (~handles.isConnected)
 		error('Not connected to any COM port');
 	end
+catch ex
+	strtemp=sprintf('ERROR : %s',ex.message);
+	set(handles.debug,'string',enquestr(strtemp));
+end
+
 	command_list = get(handles.commandlist,'String');
 	command_val = get(handles.commandlist,'Value');
 	command_cur=command_list{command_val};
@@ -349,7 +359,7 @@ try
 		case 1
 			% Atittude Monitoring Mode
 			invoke(handles.hrealterm,'ClearTerminal');
-			handles.hrealterm.PutString('77777');
+			handles.hrealterm.PutString('bbbbb');
 			strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
 			set(handles.debug,'string',enquestr(strtemp));
 			
@@ -368,6 +378,8 @@ try
 			ImageCapture(hObject, eventdata, handles);
 			
 		case 3
+			handles.isrunning = 0;
+			guidata(hObject, handles);	
 			% Halt All Data Transmission 
 			invoke(handles.hrealterm,'ClearTerminal');
 			handles.hrealterm.PutString('#####');	
@@ -375,13 +387,8 @@ try
 			set(handles.debug,'string',enquestr(strtemp));
 			
 	end
-	
-	handles.isrunning = 0;	
-	guidata(hObject, handles);	
-catch ex
-	strtemp=sprintf('ERROR : %s',ex.message);
-	set(handles.debug,'string',enquestr(strtemp));
-end
+	%handles.isrunning = 0;	
+	%guidata(hObject, handles);	
 
 
 
@@ -391,11 +398,11 @@ function rot90button_Callback(hObject, eventdata, handles)
 % hObject    handle to rot90button (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-keyboard;
+
 axes(handles.image);
+%keyboard;
 handles.imdata = imrotate(handles.imdata,90,'bilinear');
-set(handles.imHandle, 'CData', handles.imdata);
-drawnow;
+imshow(handles.imdata);
 
 strtemp=sprintf('Picture has been rotated by -90 degrees');
 set(handles.debug,'string',enquestr(strtemp));
@@ -408,6 +415,7 @@ function rotm90button_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 axes(handles.image);
+%keyboard;
 handles.imdata = imrotate(handles.imdata,-90,'bilinear');
 imshow(handles.imdata);
 
@@ -485,6 +493,8 @@ catch ex
 	%keyboard;
 	if(~isempty(strfind(ex.message,'comport doesn''t exist')))
 		strtemp='ERROR : COM port doesn''t exist';
+	elseif(~isempty(strfind(ex.message,'device already open')))
+		strtemp='ERROR : COM port already in use';
 	else
 		strtemp=sprintf('ERROR : %s',ex.message);
 	end
@@ -527,3 +537,90 @@ function AccSlider_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
+
+
+% --- Executes on slider movement.
+function slider2_Callback(hObject, eventdata, handles)
+% hObject    handle to slider2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+
+% --- Executes during object creation, after setting all properties.
+function slider2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to slider2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+
+% --- Executes on button press in resetbutton.
+function resetbutton_Callback(hObject, eventdata, handles)
+% hObject    handle to resetbutton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on slider movement.
+function bslider_Callback(hObject, eventdata, handles)
+% hObject    handle to bslider (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+
+% --- Executes during object creation, after setting all properties.
+function bslider_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to bslider (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+
+% --- Executes on button press in hebutton.
+function hebutton_Callback(hObject, eventdata, handles)
+% hObject    handle to hebutton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on slider movement.
+function cslider_Callback(hObject, eventdata, handles)
+% hObject    handle to cslider (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+
+% --- Executes during object creation, after setting all properties.
+function cslider_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to cslider (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+
+% --- Executes on button press in deblurbutton.
+function deblurbutton_Callback(hObject, eventdata, handles)
+% hObject    handle to deblurbutton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)

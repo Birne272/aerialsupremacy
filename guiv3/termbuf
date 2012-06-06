@@ -1,28 +1,35 @@
-[14:10:14] Terminal Initialized
-[14:10:14] Survelliance Initialized
-[14:10:15] Compass Initialized
-[14:10:15] Acceleration Graph Initialized
-[14:10:15] Model 3D Initialized
-[14:10:38] Trying to open COM10..
-[14:10:38] Success!
-[14:10:42] Trying to send Command [Start Surveillance Mode]... 
-[14:10:42] Success! Command [Start Surveillance Mode] sent. 
-[14:10:42] Waiting for data..
-[14:11:43] Identification received :  303
-[14:11:43] Header line 1 received at 61.08 seconds
-[14:12:28] Image capture success at 105.58 seconds
-[14:12:28] Data saved as log/cam/cam0606_1412.log
-[14:12:31] Picture has been rotated by 90 degrees
-[14:12:32] Picture has been rotated by -90 degrees
-[14:12:32] Picture has been rotated by -90 degrees
-[14:12:32] Picture has been rotated by -90 degrees
-[14:12:44] Trying to close program... 
-[14:12:44] ERROR : COM port still opened
-[14:12:45] Trying to close program... 
-[14:12:45] ERROR : COM port still opened
-[14:12:46] Trying to close COM10..
-[14:12:46] Success!
-[14:12:47] Trying to close program... 
-[14:12:47] Trying to close realterm... 
-[14:12:48] Success !
-[14:12:48] Terminal log saved as log/cam/ter0606_1412.log
+[16:46:09] Terminal Initialized
+[16:46:09] Survelliance Initialized
+[16:46:09] Compass Initialized
+[16:46:10] Acceleration Graph Initialized
+[16:46:10] Model 3D Initialized
+[16:46:11] ERROR : Not connected to any COM port
+[16:46:12] Trying to open COM10..
+[16:46:12] Success!
+[16:46:13] Trying to send Command [Start Surveillance Mode]... 
+[16:46:13] Success! Command [Start Surveillance Mode] sent. 
+[16:46:13] Waiting for data..
+[16:46:13] Identification received :  )%%%%%%%%("-,(!'&&%%$$$%%%%%%%%#%  %#&&&'(())(())*+++&&''(())''(()***+)(
+[16:46:13] ERROR : Header Mismatch line 1, got 159
+[16:46:23] Image capture success at 9.79 seconds
+[16:46:23] Data saved as log/cam/cam0606_1646.log
+[16:46:27] Trying to send Command [Start Surveillance Mode]... 
+[16:46:27] Success! Command [Start Surveillance Mode] sent. 
+[16:46:27] Waiting for data..
+[16:46:29] Identification received :  303
+[16:46:29] Header line 1 received at 2.01 seconds
+[16:47:14] Image capture success at 46.45 seconds
+[16:47:14] Data saved as log/cam/cam0606_1647.log
+[16:47:18] Picture has been rotated by 90 degrees
+[16:47:19] Picture has been rotated by -90 degrees
+[16:47:19] Picture has been rotated by -90 degrees
+[16:47:21] Trying to close program... 
+[16:47:21] ERROR : COM port still opened
+[16:47:22] Trying to close program... 
+[16:47:22] ERROR : COM port still opened
+[16:47:23] Trying to close COM10..
+[16:47:23] Success!
+[16:47:24] Trying to close program... 
+[16:47:24] Trying to close realterm... 
+[16:47:24] Success !
+[16:47:24] Terminal log saved as log/cam/ter0606_1647.log

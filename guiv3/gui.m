@@ -22,7 +22,7 @@ function varargout = gui(varargin)
 
 % Edit the above text to modify the response to help gui
 
-% Last Modified by GUIDE v2.5 06-Jun-2012 14:09:50
+% Last Modified by GUIDE v2.5 06-Jun-2012 16:10:16
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -55,7 +55,7 @@ function gui_OpeningFcn(hObject, eventdata, handles, varargin)
 handles.output = hObject;
 
 pause on;
-
+clc;
 %resources 
 addpath(genpath('resources/'))
 
@@ -67,7 +67,7 @@ slCharacterEncoding('ISO-8859-1');
 handles.isrunning = 0;
 
 %terminal 
-enquestr('',1,8,'termbuf');
+enquestr('',1,9,'termbuf');
 
 %Initializing Realterm Active X Server
 handles.hrealterm=actxserver('realterm.realtermintf'); 
@@ -79,6 +79,10 @@ handles.hrealterm.displayas= 0;
 handles.isConnected = 0;
 %0 normal 1 minimized
 
+axes(handles.sideheader);
+I=imread('sidergraksa.png');
+%I=imread('siderraise.png');
+imshow(I);
 
 %Initializing Survelliance
 axes(handles.image);
@@ -88,6 +92,8 @@ imshow(handles.imdata);
 set(handles.debug,'string',enquestr('Survelliance Initialized'));
 set(handles.ImageStatus,'string','0.0%');
 set(handles.imtime,'string','0.00');
+
+
 
 %Initializing Compas
 %set(gcf,'renderer','opengl');
@@ -332,15 +338,11 @@ function commandbutton_Callback(hObject, eventdata, handles)
 % hObject    handle to commandbutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-try
 	if (~handles.isConnected)
-		error('Not connected to any COM port');
-	end
-catch ex
-	strtemp=sprintf('ERROR : %s',ex.message);
-	set(handles.debug,'string',enquestr(strtemp));
-end
-
+		strtemp=sprintf('ERROR : Not connected to any COM port');
+		set(handles.debug,'string',enquestr(strtemp));
+		return;
+	else
 	command_list = get(handles.commandlist,'String');
 	command_val = get(handles.commandlist,'Value');
 	command_cur=command_list{command_val};
@@ -382,11 +384,11 @@ end
 			handles.hrealterm.PutString('#####');	
 			strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
 			set(handles.debug,'string',enquestr(strtemp));
-			
+	
 	end
 	%handles.isrunning = 0;	
 	%guidata(hObject, handles);	
-
+	end
 
 
 
@@ -561,5 +563,63 @@ end
 % --- Executes on button press in resetbutton.
 function resetbutton_Callback(hObject, eventdata, handles)
 % hObject    handle to resetbutton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on slider movement.
+function bslider_Callback(hObject, eventdata, handles)
+% hObject    handle to bslider (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+
+% --- Executes during object creation, after setting all properties.
+function bslider_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to bslider (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+
+% --- Executes on button press in hebutton.
+function hebutton_Callback(hObject, eventdata, handles)
+% hObject    handle to hebutton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on slider movement.
+function cslider_Callback(hObject, eventdata, handles)
+% hObject    handle to cslider (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+
+% --- Executes during object creation, after setting all properties.
+function cslider_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to cslider (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+
+% --- Executes on button press in deblurbutton.
+function deblurbutton_Callback(hObject, eventdata, handles)
+% hObject    handle to deblurbutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
