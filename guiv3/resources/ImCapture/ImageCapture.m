@@ -104,8 +104,8 @@ function ImageCapture(hObject, eventdata, handles)
 			[headerval, status] = str2num(headerstr);
 			if(status)
 				if (headerval==current_row)
-					strtemp=sprintf('Header Matched  line - %d',current_row);
-					set(handles.debug,'string',enquestr(strtemp));
+					%strtemp=sprintf('Header Matched  line - %d',current_row);
+					%set(handles.debug,'string',enquestr(strtemp));
 					if (headerval==1)
 						x=toc;
 						strtemp=sprintf('Header line 1 received at %3.2f seconds',x);
@@ -142,7 +142,7 @@ function ImageCapture(hObject, eventdata, handles)
 			imdata(current_row,current_col) = value_read;
 			if (current_row==1&&current_col<10)
 				%keyboard;
-				fprintf('(%d,%d) <- %d\n',current_row,current_col,value_read);
+				%fprintf('(%d,%d) <- %d\n',current_row,current_col,value_read);
 			end
 			inc current_col;
 		end
@@ -206,6 +206,7 @@ function ImageCapture(hObject, eventdata, handles)
 	
 	% simpan data ke global
 	handles.imdata=imdata;
+	handles.imdataOrig = handles.imdata;
 
 	
 	a=fix(clock);

@@ -22,7 +22,7 @@ function varargout = gui(varargin)
 
 % Edit the above text to modify the response to help gui
 
-% Last Modified by GUIDE v2.5 06-Jun-2012 16:10:16
+% Last Modified by GUIDE v2.5 06-Jun-2012 21:57:23
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -79,6 +79,13 @@ handles.hrealterm.displayas= 0;
 handles.isConnected = 0;
 %0 normal 1 minimized
 
+%RotateButton
+I=imread('rot90.png');
+set(handles.rotm90button,'CData',I);
+I=imread('rotm90.png');
+set(handles.rot90button,'CData',I);
+  
+%Side HEADER
 axes(handles.sideheader);
 I=imread('sidergraksa.png');
 %^I=imread('siderraise.png');
@@ -87,6 +94,7 @@ imshow(I);
 %Initializing Survelliance
 axes(handles.image);
 handles.imdata = rgb2gray(imread('square.png'));
+handles.imdataOrig = handles.imdata;
 %handles.imHandle = imshow(handles.imdata);
 imshow(handles.imdata);
 set(handles.debug,'string',enquestr('Survelliance Initialized'));
@@ -614,3 +622,16 @@ function deblurbutton_Callback(hObject, eventdata, handles)
 % hObject    handle to deblurbutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in imreset.
+function imreset_Callback(hObject, eventdata, handles)
+% hObject    handle to imreset (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+axes(handles.image);
+handles.imdata = handles.imdataOrig;
+imshow(handles.imdata);
+
+guidata(hObject, handles);
