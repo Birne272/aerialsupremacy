@@ -33,6 +33,7 @@ function ImageCapture(hObject, eventdata, handles)
 		pause(1E-6);
 	end
 	char_minimum=1;
+	
 	try
 		%keyboard;
 		HeaderID = [];
@@ -50,8 +51,8 @@ function ImageCapture(hObject, eventdata, handles)
 		end
 		strtemp=sprintf('Identification received : %s', HeaderID);
 		set(handles.debug,'string',enquestr(strtemp));
-	catch
-	
+	catch ex
+		fprintf('%s\n',ex.message);
 	end
 	
 	
@@ -139,6 +140,10 @@ function ImageCapture(hObject, eventdata, handles)
 				value_read=1;
 			end
 			imdata(current_row,current_col) = value_read;
+			if (current_row==1&&current_col<10)
+				%keyboard;
+				fprintf('(%d,%d) <- %d\n',current_row,current_col,value_read);
+			end
 			inc current_col;
 		end
 		
@@ -152,7 +157,7 @@ function ImageCapture(hObject, eventdata, handles)
 				inc x;
 				value_read=cast(fscanf(f1,'%c',1),'uint8');
             end
-            fprintf('%d --> %d',current_row, x);
+            %fprintf('%d --> %d\n',current_row, x);
 			if (x>(200-horizontal_length+1))
 				strtemp=sprintf('PANIC FF HEADER COMPASS NOT READ at line %d',current_row);
 				set(handles.debug,'string',enquestr(strtemp));

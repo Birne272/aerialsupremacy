@@ -81,9 +81,10 @@ public class JavaSerial {
                     } catch (Exception e) {
                     }
                     */
+                    /*
                     int x=0;
                     try {
-                        String filename="sampledata/kameraberkompas2";
+                        String filename="sampledata/imagelatestomg";
                         //String filename="sampledata/atmon3105_0622.log";
                         FileInputStream fin = new FileInputStream(filename);
                         DataInputStream din = new DataInputStream(fin);
@@ -97,6 +98,34 @@ public class JavaSerial {
                     } catch (Exception e) {
                     }
                     System.out.println("Total data sent : "+x+" bytes");
+                    */
+                    
+                    try {
+                        outputStream.write(0xD);
+                        outputStream.write('3');
+                        outputStream.write('0');
+                        outputStream.write('3');
+                        outputStream.write(0xFF);
+                        outputStream.write(0xD);
+                        for (int i=1;i<201;++i){
+                            
+                            outputStream.write(0xFF);
+                            outputStream.write('0'+i/100);
+                            outputStream.write('0'+(i/10)%10);
+                            outputStream.write('0'+(i%10));
+                            for (int j = 1; j < 201; j++) {
+                              outputStream.write(255-j);
+                            }
+                            
+                            outputStream.write(0xFF);
+                            outputStream.write('0'+(360-i)/100);
+                            outputStream.write('0'+((360-i)/10)%10);
+                            outputStream.write('0'+((360-i)%10));
+                        }
+
+                    } catch (Exception e) {
+                    }
+                    
                     try {
                        Thread.sleep(2000);  // Be sure data is xferred before closing
                     } catch (Exception e) {}
