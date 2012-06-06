@@ -1,5 +1,4 @@
 function ImageCapture(hObject, eventdata, handles)
-%sub function
 	% Timer utk Elapsed Time
 	T = timer();
 	T.ExecutionMode = 'fixedRate';
@@ -32,23 +31,19 @@ function ImageCapture(hObject, eventdata, handles)
 	while(handles.hrealterm.charcount==0)
 		pause(1E-6);
 	end
-	char_minimum=1;
+	char_minimum=6;
 	try
-		%keyboard;
+		keyboard;
 		HeaderID = [];
-		HeaderTemp = ' ';
+		HeaderTemp = -1;
 		while (HeaderTemp~=(255))
-			if (HeaderTemp~=14)
-				HeaderID = [HeaderID HeaderTemp];
-			end
-			while (handles.hrealterm.charcount<char_minimum)
-				pause(1E-6);
-				%tunggu sampai ada char available
-			end
-			HeaderTemp=fscanf(f1,'%c',1);
-			inc char_minimum;
-		end
-		strtemp=sprintf('Identification received : %s', HeaderID);
+		HeaderTemp=fscanf(f1,'%c',1);
+		HeaderID=[HeaderID fscanf(f1,'%c',1)];
+		HeaderID=[HeaderID fscanf(f1,'%c',1)];
+		HeaderID=[HeaderID fscanf(f1,'%c',1)];
+		HeaderID=[HeaderID fscanf(f1,'%c',1)];
+		HeaderID=[HeaderID fscanf(f1,'%c',1)];
+		strtemp=sprintf('Identification received : %s', HeaderID(2:4));
 		set(handles.debug,'string',enquestr(strtemp));
 	catch
 	
@@ -113,7 +108,7 @@ function ImageCapture(hObject, eventdata, handles)
 				else
 					x = current_row;
 					current_row = headerval;
-					error('Header Mismatch line %d, got %d',x, headerval);					
+					%error('Header Mismatch line %d, got %d',x, headerval);					
 				end
 				%final%strtemp=sprintf('Got header for line %d',current_row);
 				%final%set(handles.debug,'string',enquestr(strtemp));
@@ -153,7 +148,7 @@ function ImageCapture(hObject, eventdata, handles)
 				value_read=cast(fscanf(f1,'%c',1),'uint8');
 				
 			end
-			if (x>(200-horizontal_length+1))
+			if (x>1)
 				strtemp=sprintf('PANIC FF HEADER COMPASS NOT READ at line %d',current_row);
 				set(handles.debug,'string',enquestr(strtemp));
 			end

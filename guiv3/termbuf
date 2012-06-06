@@ -1,0 +1,28 @@
+[14:10:14] Terminal Initialized
+[14:10:14] Survelliance Initialized
+[14:10:15] Compass Initialized
+[14:10:15] Acceleration Graph Initialized
+[14:10:15] Model 3D Initialized
+[14:10:38] Trying to open COM10..
+[14:10:38] Success!
+[14:10:42] Trying to send Command [Start Surveillance Mode]... 
+[14:10:42] Success! Command [Start Surveillance Mode] sent. 
+[14:10:42] Waiting for data..
+[14:11:43] Identification received :  303
+[14:11:43] Header line 1 received at 61.08 seconds
+[14:12:28] Image capture success at 105.58 seconds
+[14:12:28] Data saved as log/cam/cam0606_1412.log
+[14:12:31] Picture has been rotated by 90 degrees
+[14:12:32] Picture has been rotated by -90 degrees
+[14:12:32] Picture has been rotated by -90 degrees
+[14:12:32] Picture has been rotated by -90 degrees
+[14:12:44] Trying to close program... 
+[14:12:44] ERROR : COM port still opened
+[14:12:45] Trying to close program... 
+[14:12:45] ERROR : COM port still opened
+[14:12:46] Trying to close COM10..
+[14:12:46] Success!
+[14:12:47] Trying to close program... 
+[14:12:47] Trying to close realterm... 
+[14:12:48] Success !
+[14:12:48] Terminal log saved as log/cam/ter0606_1412.log

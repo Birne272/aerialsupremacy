@@ -22,7 +22,7 @@ function varargout = gui(varargin)
 
 % Edit the above text to modify the response to help gui
 
-% Last Modified by GUIDE v2.5 30-May-2012 02:14:03
+% Last Modified by GUIDE v2.5 06-Jun-2012 14:09:50
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -127,7 +127,9 @@ handles.HX = plot (handles.accX,'r-');
 handles.HY = plot (handles.accY,'g-'); 
 handles.HZ = plot (handles.accZ,'b-');  
 hold off;
-legend('AccX','AccY','AccZ'); 
+legend1 = legend('AccX','AccY','AccZ'); 
+set(legend1,'Orientation','horizontal','Units','characters',...
+	'Position',[32.4782505910165 20.0691452991453 50.7044917257683 1.74153846153846]);
 
 %MAX AXIS
 handles.maxY = 10;
@@ -175,7 +177,7 @@ handles.roketvertex=V;
 
 set(handles.debug,'string',enquestr('Model 3D Initialized'));
 
-xlabel('North'),ylabel(''),zlabel('')
+%xlabel('North'),ylabel(''),zlabel('')
 
 %keyboard;
 
@@ -532,3 +534,32 @@ function AccSlider_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
+
+
+% --- Executes on slider movement.
+function slider2_Callback(hObject, eventdata, handles)
+% hObject    handle to slider2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+
+% --- Executes during object creation, after setting all properties.
+function slider2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to slider2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+
+% --- Executes on button press in resetbutton.
+function resetbutton_Callback(hObject, eventdata, handles)
+% hObject    handle to resetbutton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)

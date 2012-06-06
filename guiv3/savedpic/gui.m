@@ -22,7 +22,7 @@ function varargout = gui(varargin)
 
 % Edit the above text to modify the response to help gui
 
-% Last Modified by GUIDE v2.5 30-May-2012 02:14:03
+% Last Modified by GUIDE v2.5 06-Jun-2012 12:49:39
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -118,7 +118,7 @@ set(handles.debug,'string',enquestr('Compass Initialized'));
 
 %Initializing AccGraph
 axes(handles.acc);
-handles.ncell = 500;
+handles.ncell = 600;
 handles.accX = zeros(handles.ncell ,1);  
 handles.accY = zeros(handles.ncell ,1);
 handles.accZ = zeros(handles.ncell ,1);
@@ -127,7 +127,9 @@ handles.HX = plot (handles.accX,'r-');
 handles.HY = plot (handles.accY,'g-'); 
 handles.HZ = plot (handles.accZ,'b-');  
 hold off;
-legend('AccX','AccY','AccZ'); 
+legend1=legend('AccX','AccY','AccZ'); 
+set(legend1,'Orientation','horizontal','Units','characters',...
+	'Position',[32.2782505910165 19.8752991452992 50.7044917257683 1.82153846153846]);
 
 %MAX AXIS
 handles.maxY = 10;
@@ -175,7 +177,7 @@ handles.roketvertex=V;
 
 set(handles.debug,'string',enquestr('Model 3D Initialized'));
 
-xlabel('North'),ylabel(''),zlabel('')
+%xlabel('North'),ylabel(''),zlabel('')
 
 %keyboard;
 
