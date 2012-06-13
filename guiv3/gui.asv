@@ -22,7 +22,7 @@ function varargout = gui(varargin)
 
 % Edit the above text to modify the response to help gui
 
-% Last Modified by GUIDE v2.5 06-Jun-2012 16:10:16
+% Last Modified by GUIDE v2.5 06-Jun-2012 21:57:23
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -79,45 +79,45 @@ handles.hrealterm.displayas= 0;
 handles.isConnected = 0;
 %0 normal 1 minimized
 
+%RotateButton
+I=imread('rot90.png');
+set(handles.rotm90button,'CData',I);
+I=imread('rotm90.png');
+set(handles.rot90button,'CData',I);
+  
+%Side HEADER
 axes(handles.sideheader);
-%I=imread('sidergraksa.png');
-I=imread('siderraise.png');
+I=imread('sidergraksa.png');
+%^I=imread('siderraise.png');
 imshow(I);
 
 %Initializing Survelliance
 axes(handles.image);
 handles.imdata = rgb2gray(imread('square.png'));
+handles.imdataOrig = 
 %handles.imHandle = imshow(handles.imdata);
 imshow(handles.imdata);
 set(handles.debug,'string',enquestr('Survelliance Initialized'));
 set(handles.ImageStatus,'string','0.0%');
 set(handles.imtime,'string','0.00');
 
-
-
 %Initializing Compas
 %set(gcf,'renderer','opengl');
 opengl software;
 axes(handles.compass);
-handles.cmpd = imread('cmpd.png');
-cmps = imread('cmps.png');
+%handles.cmpd = imread('cmpd.png');
 
 hold on;
+[handles.cmpd, map, alpha] = imread('cmpd.png'); 
 handles.cmps = imshow(handles.cmpd);
+set(handles.cmps, 'AlphaData', alpha);
+
+[cmps, map, alpha] = imread('cmps.png'); 
 H2=imshow(cmps);
+set(H2, 'AlphaData', alpha);
+
 hold off;
 %keyboard;
-[row col c] = size(cmps);
-AMap = ones(row,col);
-x=0;
-for i=1:row
-	for j=1:col
-		if ((cmps(i,j,1)==0)&&(cmps(i,j,2)==168)&&(cmps(i,j,3)==89))
-			AMap(i,j) = 0;
-		end
-	end
-end
-set(H2, 'AlphaData', AMap);
 axis image;
 set(handles.debug,'string',enquestr('Compass Initialized'));
 %keyboard;
@@ -394,48 +394,6 @@ function commandbutton_Callback(hObject, eventdata, handles)
 
 
 
-% --- Executes on button press in rot90button.
-function rot90button_Callback(hObject, eventdata, handles)
-% hObject    handle to rot90button (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-axes(handles.image);
-%keyboard;
-handles.imdata = imrotate(handles.imdata,90,'bilinear');
-imshow(handles.imdata);
-
-strtemp=sprintf('Picture has been rotated by -90 degrees');
-set(handles.debug,'string',enquestr(strtemp));
-
-guidata(hObject, handles);
-
-% --- Executes on button press in rotm90button.
-function rotm90button_Callback(hObject, eventdata, handles)
-% hObject    handle to rotm90button (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-axes(handles.image);
-%keyboard;
-handles.imdata = imrotate(handles.imdata,-90,'bilinear');
-imshow(handles.imdata);
-
-strtemp=sprintf('Picture has been rotated by 90 degrees');
-set(handles.debug,'string',enquestr(strtemp));
-
-guidata(hObject, handles);
-
-% --- Executes on button press in savebutton.
-function savebutton_Callback(hObject, eventdata, handles)
-% hObject    handle to savebutton (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-a=fix(clock);
-fname = sprintf('cam%02d%02d_%02d%02d.png',a(3),a(2),a(4),a(5));
-imwrite(handles.imdata,fname,'png');
-movefile(fname,'savedpic\')
-strtemp=sprintf('Picture saved as savedpic/%s',fname);
-set(handles.debug,'string',enquestr(strtemp));
 
 
 
@@ -589,10 +547,52 @@ function hebutton_Callback(hObject, eventdata, handles)
 % hObject    handle to hebutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-keyboard;
+axes(handles.image);
 I=adapthisteq(handles.imdata);
 imshow(I);
 
+% --- Executes on button press in rot90button.
+function rot90button_Callback(hObject, eventdata, handles)
+% hObject    handle to rot90button (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+axes(handles.image);
+%keyboard;
+handles.imdata = imrotate(handles.imdata,90,'bilinear');
+imshow(handles.imdata);
+
+strtemp=sprintf('Picture has been rotated by -90 degrees');
+set(handles.debug,'string',enquestr(strtemp));
+
+guidata(hObject, handles);
+
+% --- Executes on button press in rotm90button.
+function rotm90button_Callback(hObject, eventdata, handles)
+% hObject    handle to rotm90button (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+axes(handles.image);
+%keyboard;
+handles.imdata = imrotate(handles.imdata,-90,'bilinear');
+imshow(handles.imdata);
+
+strtemp=sprintf('Picture has been rotated by 90 degrees');
+set(handles.debug,'string',enquestr(strtemp));
+
+guidata(hObject, handles);
+
+% --- Executes on button press in savebutton.
+function savebutton_Callback(hObject, eventdata, handles)
+% hObject    handle to savebutton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+a=fix(clock);
+fname = sprintf('cam%02d%02d_%02d%02d.png',a(3),a(2),a(4),a(5));
+imwrite(handles.imdata,fname,'png');
+movefile(fname,'savedpic\')
+strtemp=sprintf('Picture saved as savedpic/%s',fname);
+set(handles.debug,'string',enquestr(strtemp));
 
 
 % --- Executes on slider movement.
@@ -622,3 +622,13 @@ function deblurbutton_Callback(hObject, eventdata, handles)
 % hObject    handle to deblurbutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in imreset.
+function imreset_Callback(hObject, eventdata, handles)
+% hObject    handle to imreset (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+keyboard;
+
+guidata(hObject, handles);

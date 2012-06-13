@@ -22,7 +22,7 @@ public class JavaSerial {
     private static boolean            outputBufferEmptyFlag = false;
     
     private static BufferedReader reader = null;
-    final private static String dir = "sampledata/";
+    //final private static String dir = "sampledata/";
    
     
     public static void main(String[] args) {
@@ -81,50 +81,53 @@ public class JavaSerial {
                     } catch (Exception e) {
                     }
                     */
-                    /*
-                    int x=0;
+                    
+                     
                     try {
-                        String filename="sampledata/imagelatestomg";
-                        //String filename="sampledata/atmon3105_0622.log";
+                        //String filename="sampledata/cam0706_1743.log";
+                        //String filename = "sampledata/graksa_UF.log";
+                        //String filename = "DataFinal/Graksa/GraksaUPCam.log";
+                        String filename = "DataFinal/Raise/RaiseUPCam.log";
                         FileInputStream fin = new FileInputStream(filename);
                         DataInputStream din = new DataInputStream(fin);
-                        System.out.println("Total data available : "+din.available()+" bytes");
-                        while (din.available()>0) {                            
+                        System.out.println("Total data available : " + din.available() + " bytes");
+                        while (din.available() > 0) {
                             int dtx = din.read();
                             outputStream.write(dtx);
-                            ++x;
-                        }
-                        
-                    } catch (Exception e) {
-                    }
-                    System.out.println("Total data sent : "+x+" bytes");
-                    */
-                    
-                    try {
-                        outputStream.write(0xD);
-                        outputStream.write('3');
-                        outputStream.write('0');
-                        outputStream.write('3');
-                        outputStream.write(0xFF);
-                        outputStream.write(0xD);
-                        for (int i=1;i<201;++i){
-                            
-                            outputStream.write(0xFF);
-                            outputStream.write('0'+i/100);
-                            outputStream.write('0'+(i/10)%10);
-                            outputStream.write('0'+(i%10));
-                            for (int j = 1; j < 201; j++) {
-                              outputStream.write(255-j);
-                            }
-                            
-                            outputStream.write(0xFF);
-                            outputStream.write('0'+(360-i)/100);
-                            outputStream.write('0'+((360-i)/10)%10);
-                            outputStream.write('0'+((360-i)%10));
+                            //++x;
                         }
 
                     } catch (Exception e) {
                     }
+                    
+                    
+//                    
+//                    try {
+//                        outputStream.write(0xD);
+//                        outputStream.write('3');
+//                        outputStream.write('0');
+//                        outputStream.write('3');
+//                        outputStream.write(0xFF);
+//                        outputStream.write(0xD);
+//                        for (int i=1;i<201;++i){
+//                            
+//                            outputStream.write(0xFF);
+//                            outputStream.write('0'+i/100);
+//                            outputStream.write('0'+(i/10)%10);
+//                            outputStream.write('0'+(i%10));
+//                            
+//                            for (int j = 1; j < 201; j++) {
+//                              outputStream.write(255-j);
+//                            }
+//                            
+//                            outputStream.write(0xFF);
+//                            outputStream.write('0'+(360-i)/100);
+//                            outputStream.write('0'+((360-i)/10)%10);
+//                            outputStream.write('0'+((360-i)%10));
+//                        }
+//
+//                    } catch (Exception e) {
+//                    }
                     
                     try {
                        Thread.sleep(2000);  // Be sure data is xferred before closing

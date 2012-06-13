@@ -87,8 +87,8 @@ set(handles.rot90button,'CData',I);
   
 %Side HEADER
 axes(handles.sideheader);
-I=imread('sidergraksa.png');
-%^I=imread('siderraise.png');
+%I=imread('sidergraksa.png');
+I=imread('siderraise.png');
 imshow(I);
 
 %Initializing Survelliance
@@ -353,24 +353,27 @@ function commandbutton_Callback(hObject, eventdata, handles)
 	% 2 Start Surveillance Mode
 	% 3 Halt All Data Transmission
 	handles.isrunning = 1;
+	set(handles.cslider,'Value',5)
+	set(handles.bslider,'Value',5)
 	guidata(hObject, handles);	
 	switch command_val
 		case 1
 			% Atittude Monitoring Mode
-			invoke(handles.hrealterm,'ClearTerminal');
-			handles.hrealterm.PutString('bbbbb');
-			strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
-			set(handles.debug,'string',enquestr(strtemp));
+% 			invoke(handles.hrealterm,'ClearTerminal');
+% 			handles.hrealterm.PutString('bbbbb');
+% 			strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
+% 			set(handles.debug,'string',enquestr(strtemp));
 			
+			invoke(handles.hrealterm,'ClearTerminal');
 			tic;
 			AtMon(hObject, eventdata, handles);
 			
 		case 2
 			% Surveillance Mode
+			
+			set(handles.ImageStatus,'string','0.0%');
+			set(handles.imtime,'string','0.00');
 			invoke(handles.hrealterm,'ClearTerminal'); 
-			handles.hrealterm.PutString('aaaaa');
-			strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
-			set(handles.debug,'string',enquestr(strtemp));
 			drawnow;
 			
 			tic;
@@ -381,6 +384,7 @@ function commandbutton_Callback(hObject, eventdata, handles)
 			guidata(hObject, handles);	
 			% Halt All Data Transmission 
 			invoke(handles.hrealterm,'ClearTerminal');
+			invoke(handles.hrealterm,'ClearTerminal'); 
             for i=1:5
                 handles.hrealterm.PutString('###########################################################################################################################################################################################################');
             end
@@ -520,26 +524,6 @@ if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColo
 end
 
 
-% --- Executes on slider movement.
-function bslider_Callback(hObject, eventdata, handles)
-% hObject    handle to bslider (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'Value') returns position of slider
-%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
-
-% --- Executes during object creation, after setting all properties.
-function bslider_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to bslider (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: slider controls usually have a light gray background.
-if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor',[.9 .9 .9]);
-end
 
 
 % --- Executes on button press in hebutton.
@@ -548,8 +532,14 @@ function hebutton_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 axes(handles.image);
-I=adapthisteq(handles.imdata);
-imshow(I);
+handles.imdata=adapthisteq(handles.imdata);
+imshow(handles.imdata);
+
+
+strtemp=sprintf('CLAHE has been implemented');
+set(handles.debug,'string',enquestr(strtemp));
+
+guidata(hObject, handles);
 
 % --- Executes on button press in rot90button.
 function rot90button_Callback(hObject, eventdata, handles)
@@ -560,6 +550,7 @@ function rot90button_Callback(hObject, eventdata, handles)
 axes(handles.image);
 %keyboard;
 handles.imdata = imrotate(handles.imdata,90,'bilinear');
+handles.imdataOrig = imrotate(handles.imdataOrig,90,'bilinear');
 imshow(handles.imdata);
 
 strtemp=sprintf('Picture has been rotated by -90 degrees');
@@ -575,6 +566,7 @@ function rotm90button_Callback(hObject, eventdata, handles)
 axes(handles.image);
 %keyboard;
 handles.imdata = imrotate(handles.imdata,-90,'bilinear');
+handles.imdataOrig = imrotate(handles.imdataOrig,-90,'bilinear');
 imshow(handles.imdata);
 
 strtemp=sprintf('Picture has been rotated by 90 degrees');
@@ -603,7 +595,42 @@ function cslider_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+axes(handles.image);
+contrast=(get(handles.cslider,'Value')-5)/5;
+brightness=(get(handles.bslider,'Value')-5)/5;
+handles.imdata = changeBrightness(handles.imdataOrig,contrast,brightness);
+imshow(handles.imdata);
 
+guidata(hObject, handles);
+
+
+
+% --- Executes on slider movement.
+function bslider_Callback(hObject, eventdata, handles)
+% hObject    handle to bslider (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+axes(handles.image);
+contrast=(get(handles.cslider,'Value')-5)/5;
+brightness=(get(handles.bslider,'Value')-5)/5;
+handles.imdata = changeBrightness(handles.imdataOrig,contrast,brightness);
+imshow(handles.imdata);
+
+guidata(hObject, handles);
+
+% --- Executes during object creation, after setting all properties.
+function bslider_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to bslider (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
 
 % --- Executes during object creation, after setting all properties.
 function cslider_CreateFcn(hObject, eventdata, handles)
@@ -633,5 +660,6 @@ function imreset_Callback(hObject, eventdata, handles)
 axes(handles.image);
 handles.imdata = handles.imdataOrig;
 imshow(handles.imdata);
-
+set(handles.cslider,'Value',5)
+set(handles.bslider,'Value',5)
 guidata(hObject, handles);

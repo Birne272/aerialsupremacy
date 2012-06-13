@@ -1,0 +1,132 @@
+function [ imdata ] = imageFromFile( fname )
+%IMAGEFROMFILER Summary of this function goes here
+%   Detailed explanation goes here
+
+	horizontal_length=201;
+	vertical_length=200;
+	imdata = cast(zeros(vertical_length,horizontal_length-1),'uint8');
+	f1 = fopen (fname);
+	
+	
+	HeaderID = [];
+	HeaderTemp = ' ';
+	while (HeaderTemp~=(255))
+		if (HeaderTemp~=14)
+			HeaderID = [HeaderID HeaderTemp];
+		end
+		while (handles.hrealterm.charcount<char_minimum)
+			pause(1E-6);
+			%tunggu sampai ada char available
+		end
+		HeaderTemp=fscanf(f1,'%c',1);
+		inc char_minimum;
+	end
+	
+	
+	current_row=1;
+	while (current_row<=vertical_length)
+		value_read=0;
+		starterror=-1;
+		while(value_read~=255)			
+			inc starterror;
+			value_read=cast(fscanf(f1,'%c',1),'uint8');
+		end
+		
+		headerbyte1=cast(fscanf(f1,'%c',1),'uint8');
+		headerbyte2=cast(fscanf(f1,'%c',1),'uint8');
+		headerbyte3=cast(fscanf(f1,'%c',1),'uint8');
+		headerstr = strcat(headerbyte1,headerbyte2,headerbyte3);
+		[headerval, status] = str2num(headerstr);
+		
+		current_col=1;
+		while (current_col<horizontal_length)	
+			value_read=cast(fscanf(f1,'%c',1),'uint8');
+			if (isempty(value_read))
+				value_read = 1;
+			end
+			imdata(current_row,current_col) = value_read;
+			inc current_col;
+		end
+		
+		%%COMPASS READING
+		value_read=cast(fscanf(f1,'%c',1),'uint8');
+		x=0;
+		while(value_read~=255)
+			inc char_minimum;
+			inc x;
+			value_read=cast(fscanf(f1,'%c',1),'uint8');
+		end
+		
+		compassbyte1=cast(fscanf(f1,'%c',1),'uint8');
+		compassbyte2=cast(fscanf(f1,'%c',1),'uint8');
+		compassbyte3=cast(fscanf(f1,'%c',1),'uint8');
+		compasstr = strcat(compassbyte1,compassbyte2,compassbyte3);
+		[compasval, status] = str2num(compasstr);
+			
+			if(status)
+				C= imrotate(handles.cmpd,compasval,'crop');
+				set(handles.cmps,'CData',C);
+				drawnow;				
+			else
+				strtemp=sprintf('PANIC COMPASS invalid at %d read : %s',current_row,compasstr);
+				set(handles.debug,'string',enquestr(strtemp));
+			end	
+		catch ex
+			strtemp=sprintf('ERROR : %s',ex.message);
+			set(handles.debug,'string',enquestr(strtemp));
+			value_read=0;
+		end
+		
+
+		set(handles.ImageStatus,'String',sprintf('%2.1f%%',current_row/2));
+		if (not(mod(current_row,2)))
+			set(imHandle, 'CData', imdata);
+			drawnow;
+		end
+		
+		inc current_row;
+
+		
+	end
+	
+	if (quit_failsafe)
+		strtemp=sprintf('Failsafe! Image full reconstruction',x); 
+		set(handles.debug,'string',enquestr(strtemp));
+		%keyboard;
+	end;
+	
+	stop(T);
+	x=toc;
+	
+	strtemp=sprintf('Image capture success at %3.2f seconds',x); 
+	set(handles.debug,'string',enquestr(strtemp));
+	%keyboard;
+
+	
+	fclose(f1);
+	invoke(handles.hrealterm,'stopcapture');
+	
+	% simpan data ke global
+	handles.imdata=imdata;
+	handles.imdataOrig = handles.imdata;
+
+	
+	a=fix(clock);
+	fname = sprintf('cam%02d%02d_%02d%02d.log',a(3),a(2),a(4),a(5));
+	copyfile(imbuffer,fname);
+	movefile(fname,'log\cam\');
+	strtemp=sprintf('Data saved as log/cam/%s',fname);
+	set(handles.debug,'string',enquestr(strtemp));
+	
+	%enable image function
+	set(handles.rot90button,'Enable','on');
+	set(handles.rotm90button,'Enable','on');
+	set(handles.savebutton,'Enable','on');
+	%keyboard;
+	
+	handles.isrunning = 0;		
+	guidata(hObject,handles);
+
+
+end
+
