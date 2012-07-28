@@ -377,8 +377,11 @@ end
 			guidata(hObject, handles);	
 			% Halt All Data Transmission 
 			invoke(handles.hrealterm,'ClearTerminal');
-			handles.hrealterm.PutString('#####');	
-			strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
+			handles.hrealterm.PutString('###########################################################################');	
+            handles.hrealterm.PutString('###########################################################################');	
+			handles.hrealterm.PutString('###########################################################################');	
+			
+            strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
 			set(handles.debug,'string',enquestr(strtemp));
 			
 	end

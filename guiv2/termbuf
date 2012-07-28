@@ -1,9 +1,79 @@
-[06:51:02] Terminal Initialized
-[06:51:03] Survelliance Initialized
-[06:51:03] Compass Initialized
-[06:51:03] Acceleration Graph Initialized
-[06:51:04] Model 3D Initialized
-[06:51:07] Trying to close program... 
-[06:51:07] Trying to close realterm... 
-[06:51:07] Success !
-[06:51:07] Terminal log saved as log/cam/ter0606_0651.log
+[22:07:58] Terminal Initialized
+[22:07:59] Survelliance Initialized
+[22:07:59] Compass Initialized
+[22:07:59] Acceleration Graph Initialized
+[22:08:00] Model 3D Initialized
+[22:08:07] Trying to open COM1..
+[22:08:07] Success!
+[22:08:10] Trying to send Command [Start Atittude Monitoring Mode]... 
+[22:08:10] Success! Command [Start Atittude Monitoring Mode] sent. 
+[22:08:10] Waiting for data..
+[22:08:10] Data received at 0.08 seconds
+[22:08:19] Trying to send Command [Halt All Data Transmission]... 
+[22:08:19] Success! Command [Halt All Data Transmission] sent. 
+[22:08:19] Trying to close COM1..
+[22:08:20] Success!
+[22:08:25] Data saved as log/atmon/atmon0606_2208.log
+[22:08:48] Trying to close COM1..
+[22:08:48] Success!
+[22:08:52] Trying to open COM1..
+[22:08:52] Success!
+[22:08:52] Trying to close COM1..
+[22:08:52] Success!
+[22:08:53] Trying to open COM1..
+[22:08:54] Success!
+[22:08:54] Trying to close COM1..
+[22:08:54] Success!
+[22:08:54] Trying to open COM1..
+[22:08:54] Success!
+[22:08:54] Trying to close COM1..
+[22:08:54] Success!
+[22:08:54] Trying to open COM1..
+[22:08:55] Success!
+[22:08:57] Trying to send Command [Start Atittude Monitoring Mode]... 
+[22:08:57] Success! Command [Start Atittude Monitoring Mode] sent. 
+[22:08:57] Waiting for data..
+[22:08:57] Data received at 0.07 seconds
+[22:09:06] Trying to close COM1..
+[22:09:06] ERROR : COM port in use.
+[22:09:07] Trying to send Command [Halt All Data Transmission]... 
+[22:09:07] Success! Command [Halt All Data Transmission] sent. 
+[22:09:08] Trying to send Command [Halt All Data Transmission]... 
+[22:09:08] Success! Command [Halt All Data Transmission] sent. 
+[22:09:08] Trying to close COM1..
+[22:09:08] Success!
+[22:09:09] Data saved as log/atmon/atmon0606_2209.log
+[22:09:42] Trying to close COM1..
+[22:09:42] Success!
+[22:09:46] Trying to open COM1..
+[22:09:46] Success!
+[22:09:48] Trying to send Command [Start Atittude Monitoring Mode]... 
+[22:09:48] Success! Command [Start Atittude Monitoring Mode] sent. 
+[22:09:48] Waiting for data..
+[22:09:48] Data received at 0.06 seconds
+[22:10:11] Trying to send Command [Halt All Data Transmission]... 
+[22:10:11] Success! Command [Halt All Data Transmission] sent. 
+[22:10:14] Trying to close COM1..
+[22:10:14] Success!
+[22:10:14] Data saved as log/atmon/atmon0606_2210.log
+[22:10:32] Trying to close program... 
+[22:10:32] ERROR : COM port still opened
+[22:10:37] Trying to close program... 
+[22:10:37] ERROR : COM port still opened
+[22:10:39] Trying to send Command [Halt All Data Transmission]... 
+[22:10:41] Trying to close program... 
+[22:10:41] ERROR : COM port still opened
+[22:10:46] Trying to close program... 
+[22:10:46] ERROR : COM port still opened
+[22:10:47] Trying to close COM1..
+[22:10:47] Success!
+[22:10:47] Trying to open COM1..
+[22:10:48] Success!
+[22:10:49] Trying to send Command [Halt All Data Transmission]... 
+[22:10:49] Success! Command [Halt All Data Transmission] sent. 
+[22:10:49] Trying to close COM1..
+[22:10:49] Success!
+[22:10:50] Trying to close program... 
+[22:10:50] Trying to close realterm... 
+[22:10:51] Success !
+[22:10:51] Terminal log saved as log/cam/ter0606_2210.log

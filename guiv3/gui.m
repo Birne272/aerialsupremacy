@@ -386,7 +386,7 @@ function commandbutton_Callback(hObject, eventdata, handles)
 			invoke(handles.hrealterm,'ClearTerminal');
 			invoke(handles.hrealterm,'ClearTerminal'); 
             for i=1:5
-                handles.hrealterm.PutString('###########################################################################################################################################################################################################');
+                handles.hrealterm.PutString('########');
             end
 			strtemp=sprintf('Success! Command [%s] sent. ',command_cur);
 			set(handles.debug,'string',enquestr(strtemp));
