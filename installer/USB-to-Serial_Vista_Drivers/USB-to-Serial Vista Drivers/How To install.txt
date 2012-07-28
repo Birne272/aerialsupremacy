@@ -1,0 +1,4 @@
+**Do not plug the USB-to-Serial Adapter before installing the Driver**
+
+1. Run the 'Setup.exe' file
+2. After the installation is complete, plug the USB-to-Serial Adapter into a free USB Port.
